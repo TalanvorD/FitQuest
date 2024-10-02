@@ -1,5 +1,6 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
+const dateFormat = require('../utils/dateFormat');
 
 const userSchema = new Schema({
   username: {
@@ -19,10 +20,74 @@ const userSchema = new Schema({
     required: true,
     minlength: 5,
   },
-  thoughts: [
+  level: {
+    type: Number,
+    required: true,
+    default: 0,
+  },
+  expPoints: {
+    type: Number,
+    required: true,
+    default: 0,
+  },
+  mainGoal: { // STR, INT, STA, VIT
+    type: String,
+    required: true,
+  },
+  strength: {
+    type: Number,
+    required: true,
+    default: 0,
+  },
+  intellect: {
+    type: Number,
+    required: true,
+    default: 0,
+  },
+  stamina: {
+    type: Number,
+    required: true,
+    default: 0,
+  },
+  vitality: {
+    type: Number,
+    required: true,
+    default: 0,
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now,
+    get: (timestamp) => dateFormat(timestamp),
+  },
+  activities: [
     {
       type: Schema.Types.ObjectId,
-      ref: 'Thought',
+      ref: 'Activity',
+    },
+  ],
+  weightTrack: [
+    {
+      recordedWeight: {
+        type: Number,
+        required: true,
+      },
+      recordedAt: {
+        type: Date,
+        default: Date.now,
+        get: (timestamp) => dateFormat(timestamp),
+      },
+    },
+  ],
+  bodyFatTrack: [
+    {
+      recordedBodyFat: {
+        type: Number,
+      },
+      recordedAt: {
+        type: Date,
+        default: Date.now,
+        get: (timestamp) => dateFormat(timestamp),
+      },
     },
   ],
 });
