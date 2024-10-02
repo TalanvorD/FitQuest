@@ -1,24 +1,24 @@
-const { User, Thought } = require('../models');
+const { User, Activity } = require('../models');
 const { signToken, AuthenticationError } = require('../utils/auth');
 
 const resolvers = {
   Query: {
     users: async () => {
-      return User.find().populate('thoughts');
+      return User.find().populate('activities');
     },
     user: async (parent, { username }) => {
-      return User.findOne({ username }).populate('thoughts');
+      return User.findOne({ username }).populate('activities');
     },
-    thoughts: async (parent, { username }) => {
+    activities: async (parent, { username }) => {
       const params = username ? { username } : {};
-      return Thought.find(params).sort({ createdAt: -1 });
+      return Activity.find(params).sort({ createdAt: -1 });
     },
-    thought: async (parent, { thoughtId }) => {
-      return Thought.findOne({ _id: thoughtId });
+    thought: async (parent, { activityId }) => {
+      return Activity.findOne({ _id: activityId });
     },
     me: async (parent, args, context) => {
       if (context.user) {
-        return User.findOne({ _id: context.user._id }).populate('thoughts');
+        return User.findOne({ _id: context.user._id }).populate('activities');
       }
       throw AuthenticationError;
     },
@@ -56,17 +56,17 @@ const resolvers = {
 
         await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $addToSet: { thoughts: thought._id } }
+          { $addToSet: { activities: thought._id } }
         );
 
         return thought;
       }
       throw AuthenticationError;
     },
-    addComment: async (parent, { thoughtId, commentText }, context) => {
+    addComment: async (parent, { activityId, commentText }, context) => {
       if (context.user) {
         return Thought.findOneAndUpdate(
-          { _id: thoughtId },
+          { _id: activityId },
           {
             $addToSet: {
               comments: { commentText, commentAuthor: context.user.username },
@@ -80,26 +80,26 @@ const resolvers = {
       }
       throw AuthenticationError;
     },
-    removeThought: async (parent, { thoughtId }, context) => {
+    removeThought: async (parent, { activityId }, context) => {
       if (context.user) {
         const thought = await Thought.findOneAndDelete({
-          _id: thoughtId,
+          _id: activityId,
           thoughtAuthor: context.user.username,
         });
 
         await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $pull: { thoughts: thought._id } }
+          { $pull: { activities: thought._id } }
         );
 
         return thought;
       }
       throw AuthenticationError;
     },
-    removeComment: async (parent, { thoughtId, commentId }, context) => {
+    removeComment: async (parent, { activityId, commentId }, context) => {
       if (context.user) {
         return Thought.findOneAndUpdate(
-          { _id: thoughtId },
+          { _id: activityId },
           {
             $pull: {
               comments: {
