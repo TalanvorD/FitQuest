@@ -1703,6 +1703,17 @@ label form [type='radio'] {
   }
 }
 
+/* NEW STUFF */
+
 #header-font {
   color: gold;
 }
+
+#login-bg {
+  background-image: url('../public/login-bg.jpg');
+  background-size: cover; /* Adjust the size as needed */
+  background-position: center; /* Center the image */
+  width: 100%;
+  height: 100vh; /* Ensure it covers the full viewport height */
+}
+
