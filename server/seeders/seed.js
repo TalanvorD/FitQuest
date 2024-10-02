@@ -1,23 +1,23 @@
 const db = require('../config/connection');
 const { User, Activity } = require('../models');
-// const userSeeds = require('./userSeeds.json');
-// const thoughtSeeds = require('./thoughtSeeds.json');
+const userSeeds = require('./userSeeds.json');
+const activitySeeds = require('./activitySeeds.json');
 const cleanDB = require('./cleanDB');
 
 db.once('open', async () => {
   try {
-    await cleanDB('Thought', 'thoughts');
+    await cleanDB('Activity', 'activities');
     await cleanDB('User', 'users');
 
     await User.create(userSeeds);
 
-    for (let i = 0; i < thoughtSeeds.length; i++) {
-      const { _id, thoughtAuthor } = await Thought.create(thoughtSeeds[i]);
+    for (let i = 0; i < activitySeeds.length; i++) {
+      const { _id, activityCreator } = await Activity.create(activitySeeds[i]);
       const user = await User.findOneAndUpdate(
-        { username: thoughtAuthor },
+        { username: activityCreator },
         {
           $addToSet: {
-            thoughts: _id,
+            activities: _id,
           },
         }
       );
@@ -27,6 +27,6 @@ db.once('open', async () => {
     process.exit(1);
   }
 
-  console.log('all done!');
+  console.log('All done seeding!');
   process.exit(0);
 });
