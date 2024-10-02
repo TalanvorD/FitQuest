@@ -21,6 +21,7 @@ body {
   margin: 0;
 }
 
+
 /**
  * Render the `main` element consistently in IE.
  */
@@ -425,11 +426,6 @@ button {
 a {
   color: #1b89bc;
   text-decoration: none;
-}
-
-a:hover {
-  color: #065b83;
-  text-decoration: underline;
 }
 
 /* HEIGHT / WIDTH UTILS */
@@ -919,8 +915,8 @@ a:hover {
 }
 
 /* BACKGROUND UTILS */
-.bg-primary {
-  background-color: #2d3e50 !important;
+#header-bg {
+  background-color: #8F3535  !important;
 }
 
 .bg-info {
@@ -1705,4 +1701,8 @@ label form [type='radio'] {
   .align-content-center-xl {
     align-content: center;
   }
+}
+
+#header-font {
+  color: gold;
 }
