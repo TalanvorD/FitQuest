@@ -5,7 +5,7 @@ import {
   createHttpLink,
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLocation  } from 'react-router-dom';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -35,14 +35,18 @@ const client = new ApolloClient({
 });
 
 function App() {
+  const location = useLocation();
+  const currentPage = location.pathname;
+
   return (
     <ApolloProvider client={client}>
-      <div className="flex-column justify-flex-start min-100-vh">
-        <Header />
+      <div id="main-bg" className="flex-column justify-flex-start min-100-vh">
+        {/* The Header will not render if the current page is '/Login' */}
+        {currentPage !== '/login' && <Header />}
         <div className="container">
           <Outlet />
         </div>
-        <Footer />
+        {currentPage !== '/login' && <Footer />}
       </div>
     </ApolloProvider>
   );
