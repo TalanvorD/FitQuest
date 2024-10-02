@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Bench Press",
+    "calorieBurn": 10,
+    "statType": "Strength",
+    "activityCreator": "Brian Kernighan"
+  },
+  {
+    "name": "Elliptical Trainer",
+    "calorieBurn": 140,
+    "statType": "Intellect",
+    "activityCreator": "Max Kanat-Alexander"
+  },
+  {
+    "name": "Rowing Machine",
+    "calorieBurn": 120,
+    "statType": "Stamina",
+    "activityCreator": "Why The Lucky Stiff"
+  },
+  {
+    "name": "Pull Ups",
+    "calorieBurn": 80,
+    "statType": "Stamina",
+    "activityCreator": "Lernantino"
+  }
+]

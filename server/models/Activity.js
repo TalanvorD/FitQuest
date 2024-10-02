@@ -20,8 +20,8 @@ const activitySchema = new Schema({
     type: String,
     required: true,
   },
-  userId: {
-    type: Number,
+  activityCreator: {
+    type: String,
     required: true,
   },
 });

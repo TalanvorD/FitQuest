@@ -2,51 +2,61 @@
   {
     "username": "Brian Kernighan",
     "email": "bkernighan@techfriends.dev",
-    "password": "password01"
+    "password": "password01",
+    "level": 5,
+    "expPoints": 500,
+    "mainGoal": "Strength",
+    "strength": 10,
+    "intellect": 3,
+    "stamina": 4,
+    "vitality": 2,
+    "height": 67,
+    "weightTrack": { "recordedWeight": 185 },
+    "bodyFatTrack": { "recordedBodyFat": 21 }
   },
   {
     "username": "Max Kanat-Alexander",
     "email": "mkanatalexander@techfriends.dev",
-    "password": "password02"
+    "password": "password02",
+    "level": 2,
+    "expPoints": 230,
+    "mainGoal": "Intellect",
+    "strength": 1,
+    "intellect": 8,
+    "stamina": 3,
+    "vitality": 1,
+    "height": 71,
+    "weightTrack": { "recordedWeight": 210 },
+    "bodyFatTrack": { "recordedBodyFat": 24 }
   },
   {
     "username": "Why The Lucky Stiff",
     "email": "wtls@techfriends.dev",
-    "password": "password03"
-  },
-  {
-    "username": "Kent Beck",
-    "email": "kbeck@techfriends.dev",
-    "password": "password04"
-  },
-  {
-    "username": "Edward V. Berard",
-    "email": "evberard@techfriends.dev",
-    "password": "password05"
-  },
-  {
-    "username": "Alan Kay",
-    "email": "akay@techfriends.dev",
-    "password": "password06"
-  },
-  {
-    "username": "C.A.R. Hoare",
-    "email": "choare@techfriends.dev",
-    "password": "password07"
-  },
-  {
-    "username": "David Thomas",
-    "email": "dthomas@techfriends.dev",
-    "password": "password08"
-  },
-  {
-    "username": "Donald Knuth",
-    "email": "dknuth@techfriends.dev",
-    "password": "password09"
+    "password": "password03",
+    "level": 7,
+    "expPoints": 745,
+    "mainGoal": "Stamina",
+    "strength": 2,
+    "intellect": 3,
+    "stamina": 9,
+    "vitality": 2,
+    "height": 74,
+    "weightTrack": { "recordedWeight": 205 },
+    "bodyFatTrack": { "recordedBodyFat": 22 }
   },
   {
     "username": "Lernantino",
     "email": "lernantino@techfriends.dev",
-    "password": "password10"
+    "password": "password10",
+    "level": 22,
+    "expPoints": 2280,
+    "mainGoal": "Vitality",
+    "strength": 5,
+    "intellect": 10,
+    "stamina": 9,
+    "vitality": 18,
+    "height": 69,
+    "weightTrack": { "recordedWeight": 169 },
+    "bodyFatTrack": { "recordedBodyFat": 18 }
   }
 ]
