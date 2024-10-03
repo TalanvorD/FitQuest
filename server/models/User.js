@@ -22,12 +22,10 @@ const userSchema = new Schema({
   },
   level: {
     type: Number,
-    required: true,
     default: 0,
   },
   expPoints: {
     type: Number,
-    required: true,
     default: 0,
   },
   mainGoal: { // STR, INT, STA, VIT
@@ -36,22 +34,18 @@ const userSchema = new Schema({
   },
   strength: {
     type: Number,
-    required: true,
     default: 0,
   },
   intellect: {
     type: Number,
-    required: true,
     default: 0,
   },
   stamina: {
     type: Number,
-    required: true,
     default: 0,
   },
   vitality: {
     type: Number,
-    required: true,
     default: 0,
   },
   createdAt: {
@@ -65,11 +59,13 @@ const userSchema = new Schema({
       ref: 'Activity',
     },
   ],
+  height: {
+    type: Number,
+  },
   weightTrack: [
     {
       recordedWeight: {
         type: Number,
-        required: true,
       },
       recordedAt: {
         type: Date,

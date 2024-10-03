@@ -41,6 +41,7 @@ const Login = (props) => {
   };
 
   return (
+    <div id="login-bg">
     <main className="flex-row justify-center mb-4">
       <div className="col-12 col-lg-10">
         <div className="card">
@@ -88,6 +89,7 @@ const Login = (props) => {
         </div>
       </div>
     </main>
+    </div>
   );
 };
 
