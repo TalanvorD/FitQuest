@@ -35,3 +35,4 @@ const XpBar = () => {
 };
 
 export default XpBar;
+// this is for the sake of keeping all edits
