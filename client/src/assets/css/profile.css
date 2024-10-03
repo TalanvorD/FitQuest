@@ -1,0 +1,12 @@
+.hero {
+  background-image: url('/Users/ryanshaffer/bootcamp/FitQuest/client/src/assets/greathall.jpg');
+  background-size: cover;
+  height: 710px;
+  width: 710px;
+  background-position: center;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}
