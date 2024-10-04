@@ -1,4 +1,4 @@
-const typeDefs = `
+const typeDefs = `#graphql
   type User {
     _id: ID
     username: String
@@ -11,7 +11,7 @@ const typeDefs = `
     intellect: Int
     stamina: Int
     vitality: Int
-    createdAt: Date
+    createdAt: String
     activities: [Activity]
     height: Int
     weightTrack: [WeightTrack]
@@ -20,16 +20,16 @@ const typeDefs = `
 
   type WeightTrack{
     recordedWeight: Int
-    recordedAt: Date
+    recordedAt: String
   }
 
   type BodyFatTrack{
     recordedBodyFat: Int
-    recordedAt: Date
+    recordedAt: String
   }
 
-  type Date {
-    date: String }
+  # type Date {
+  #   date: String }
   
   type Activity {
     _id: ID
@@ -54,7 +54,7 @@ const typeDefs = `
   }
 
   type Mutation {
-    addUser(username: String!, email: String!, password: String!, mainGoal: String!, height: Int, weight: [Int], bodyfat: [Int]): Auth
+    addUser(username: String!, email: String!, password: String!): Auth
     updateUser(mainGoal: String, weight: [Int], bodyfat: [Int]): User
     removeUser(userId: ID!): Auth
     login(email: String!, password: String!): Auth
@@ -62,5 +62,5 @@ const typeDefs = `
     removeActivity(activityId: ID!): Activity
   }
 `;
-
+//    addUser(username: String!, email: String!, password: String!, mainGoal: String!, height: Int, weight: [Int], bodyfat: [Int]): Auth
 module.exports = typeDefs;
