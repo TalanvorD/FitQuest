@@ -11,8 +11,8 @@
     "stamina": 4,
     "vitality": 2,
     "height": 67,
-    "weightTrack": { "recordedWeight": 185 },
-    "bodyFatTrack": { "recordedBodyFat": 21 }
+    "weightTrack": [{ "recordedWeight": 185, "recordedAt": "01/01/1980" }],
+    "bodyFatTrack": [{ "recordedBodyFat": 21, "recordedAt": "01/01/1980" }]
   },
   {
     "username": "Max Kanat-Alexander",

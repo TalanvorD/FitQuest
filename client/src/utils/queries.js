@@ -6,16 +6,47 @@ export const QUERY_USER = gql`
       _id
       username
       email
-      thoughts {
+      level
+      expPoints
+      mainGoal
+      strength
+      intellect
+      stamina
+      vitality
+      activities {
         _id
-        thoughtText
+        name
         createdAt
       }
+      height
+      weightTrack {
+      recordedWeight
+      recordedAt
+    }
+      bodyFatTrack {
+      recordedBodyFat
+      recordedAt
+    }
+      createdAt
     }
   }
 `;
 
-export const QUERY_THOUGHTS = gql`
+export const QUERY_ACTIVITIES = gql`
+  query getActivities {
+    activities {
+      _id
+      name
+      calorieBurn
+      createdAt
+      statType
+      activityCreator
+    }
+  }
+`;
+
+//Delete this later
+/* export const QUERY_THOUGHTS = gql`
   query getThoughts {
     thoughts {
       _id
@@ -26,6 +57,7 @@ export const QUERY_THOUGHTS = gql`
   }
 `;
 
+//Delete this later
 export const QUERY_SINGLE_THOUGHT = gql`
   query getSingleThought($thoughtId: ID!) {
     thought(thoughtId: $thoughtId) {
@@ -41,7 +73,7 @@ export const QUERY_SINGLE_THOUGHT = gql`
       }
     }
   }
-`;
+`; */
 
 export const QUERY_ME = gql`
   query me {
@@ -49,12 +81,28 @@ export const QUERY_ME = gql`
       _id
       username
       email
-      thoughts {
+      level
+      expPoints
+      mainGoal
+      strength
+      intellect
+      stamina
+      vitality
+      activities {
         _id
-        thoughtText
-        thoughtAuthor
+        name
         createdAt
-      }
+        }
+      height
+      weightTrack {
+      recordedWeight
+      recordedAt
     }
+      bodyFatTrack {
+      recordedBodyFat
+      recordedAt
+    }
+      createdAt
+      }
   }
 `;

@@ -30,7 +30,6 @@ const userSchema = new Schema({
   },
   mainGoal: { // STR, INT, STA, VIT
     type: String,
-    required: true,
   },
   strength: {
     type: Number,
