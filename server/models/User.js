@@ -58,10 +58,10 @@ const userSchema = new Schema({
       ref: 'Activity',
     },
   ],
-  height: {
+  height: { // Standard, feet/inches
     type: Number,
   },
-  weightTrack: [
+  weightTrack: [ // Standard, pounds
     {
       recordedWeight: {
         type: Number,

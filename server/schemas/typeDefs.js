@@ -27,9 +27,6 @@ const typeDefs = `#graphql
     recordedBodyFat: Int
     recordedAt: String
   }
-
-  # type Date {
-  #   date: String }
   
   type Activity {
     _id: ID
@@ -38,6 +35,13 @@ const typeDefs = `#graphql
     createdAt: String
     statType: String
     activityCreator: String
+  }
+
+  type Quests {
+    title: String
+    description: String
+    statType: String
+    expValue: Int
   }
 
   type Auth {
