@@ -45,7 +45,18 @@ const Profile = () => {
           <h2 className="center text-light p-3 mb-5">
             Welcome {user.username}
           </h2>
-          <XpBar></XpBar>
+          <div className='grid'>
+            <div className='profile-section'>
+              {user.username}
+              {/* user character image */}
+              {/* user stats (weight height goal) */}
+            </div>
+            <div className='xp-section'>
+              <XpBar></XpBar>
+            </div>
+            {/* current quest */}
+            {/* a section to show trends in weight and maybe even activity */}
+          </div>
 
           {/* <div className="col-12 col-md-10 mb-5">
             <ThoughtList
