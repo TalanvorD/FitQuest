@@ -4,24 +4,37 @@ const typeDefs = `
     username: String
     email: String
     password: String
-    level: Number
-    expPoints: Number
+    level: Int
+    expPoints: Int
     mainGoal: String
-    strength: Number
-    intellect: Number
-    stamina: Number
-    vitality: Number
+    strength: Int
+    intellect: Int
+    stamina: Int
+    vitality: Int
     createdAt: Date
     activities: [Activity]
-    height: Number
-    weightTrack: [recordedWeight, recordedAt]
-    bodyFatTrack: [recordedBodyFat, recordedAt]
+    height: Int
+    weightTrack: [WeightTrack]
+    bodyFatTrack: [BodyFatTrack]
   }
 
+  type WeightTrack{
+    recordedWeight: Int
+    recordedAt: Date
+  }
+
+  type BodyFatTrack{
+    recordedBodyFat: Int
+    recordedAt: Date
+  }
+
+  type Date {
+    date: String }
+  
   type Activity {
     _id: ID
     name: String
-    calorieBurn: Number
+    calorieBurn: Int
     createdAt: String
     statType: String
     activityCreator: String
@@ -41,11 +54,11 @@ const typeDefs = `
   }
 
   type Mutation {
-    addUser(username: String!, email: String!, password: String!, mainGoal: String!, height: Number, weight: [Number], bodyfat: [Number]): Auth
-    updateUser(mainGoal: String, weight: [Number], bodyfat: [Number]): User
+    addUser(username: String!, email: String!, password: String!, mainGoal: String!, height: Int, weight: [Int], bodyfat: [Int]): Auth
+    updateUser(mainGoal: String, weight: [Int], bodyfat: [Int]): User
     removeUser(userId: ID!): Auth
     login(email: String!, password: String!): Auth
-    addActivity(name: String!, calorieBurn: Number, statType: String, activityCreator: String): Activity
+    addActivity(name: String!, calorieBurn: Int, statType: String, activityCreator: String): Activity
     removeActivity(activityId: ID!): Activity
   }
 `;
