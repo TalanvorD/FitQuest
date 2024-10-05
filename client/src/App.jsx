@@ -5,7 +5,7 @@ import {
   createHttpLink,
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
-import { Outlet, useLocation  } from 'react-router-dom';
+import { Outlet, useLocation, Navigate  } from 'react-router-dom';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -37,6 +37,7 @@ const client = new ApolloClient({
 function App() {
   const location = useLocation();
   const currentPage = location.pathname;
+  const isAuthenticated = !!localStorage.getItem('id_token');
 
   return (
     <ApolloProvider client={client}>
@@ -44,6 +45,7 @@ function App() {
         {/* The Header will not render if the current page is '/Login' */}
         {currentPage !== '/login' && currentPage !== '/signup' && <Header />}
         <div className="container">
+        {!isAuthenticated && currentPage !== '/login' && currentPage !== '/signup' && <Navigate to="/login" />}
           <Outlet />
         </div>
         {currentPage !== '/login' && currentPage !== '/signup' && <Footer />}

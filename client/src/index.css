@@ -324,10 +324,9 @@ a {
 /* MAIN PAGE */
 
 #main-bg {
-    background-color: black;
     background-image: url(../public/homepage-bg2.webp);
     background-size: cover; 
     background-repeat: no-repeat; 
     background-position: center;
-    
+    height: 100vh;
 }
