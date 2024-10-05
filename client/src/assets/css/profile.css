@@ -10,3 +10,22 @@
   display: flex;
   justify-content: center;
 }
+
+.grid {
+  display: flex;
+}
+
+.xp-section {
+  width: 50%;
+  padding: 5px;
+  color: white;
+  border: 2px solid white;
+}
+
+.profile-section {
+  width: 50%;
+  color: white;
+  padding: 5px;
+  border: 2px solid white;
+
+}
