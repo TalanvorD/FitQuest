@@ -28,8 +28,13 @@ const typeDefs = `#graphql
     recordedAt: String
   }
 
-  # type Date {
-  #   date: String }
+  type Quests{
+    _id: ID
+    title: String
+    description: String
+    statType: String
+    expValue: Int
+  }
   
   type Activity {
     _id: ID
@@ -51,6 +56,7 @@ const typeDefs = `#graphql
     activities(username: String): [Activity]
     activity(activityId: ID!): Activity
     me: User
+    quests: [Quests]
   }
 
   type Mutation {
