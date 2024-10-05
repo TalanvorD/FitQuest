@@ -1,0 +1,33 @@
+[
+    {
+      "title": "Push Ups",
+      "description": "Do 30 pushups for 30 exp",
+      "statType": "Strength",
+      "expValue": 30
+    },
+    {
+        "title": "Dips",
+        "description": "Do 10 dips for 10 exp",
+        "statType": "Strength",
+        "expValue": 10
+    },
+    {
+        "title": "Treadmill",
+        "description": "Walk on the treadmill for 15 minutes for 15 exp",
+        "statType": "Stamina",
+        "expValue": 15
+    },
+    {
+        "title": "Swim Laps",
+        "description": "Do 20 laps for 20 exp",
+        "statType": "Vitality",
+        "expValue": 20
+    },
+    {
+        "title": "Intelligence Quest",
+        "description": "What quests can we do for Intelligence?",
+        "statType": "Intelligence",
+        "expValue": 5
+    }
+  ]
+  

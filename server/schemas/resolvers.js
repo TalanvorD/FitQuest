@@ -1,4 +1,4 @@
-const { User, Activity } = require('../models');
+const { User, Activity, Quests } = require('../models');
 const { signToken, AuthenticationError } = require('../utils/auth');
 
 const resolvers = {
@@ -16,6 +16,9 @@ const resolvers = {
     activity: async (parent, { activityId }) => {
       return Activity.findOne({ _id: activityId });
     },
+    quests: async (parent, { questsId }) => {
+      return Quests.find();
+    },
     me: async (parent, args, context) => {
       if (context.user) {
         return User.findOne({ _id: context.user._id }).populate('activities');
@@ -30,13 +33,6 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-    /*
-      addUser: async (parent, { username, email, password, height, weight, bodyfat }) => {
-      const user = await User.create({ username, email, password, height, weight, bodyfat  });
-      const token = signToken(user);
-      return { token, user };
-    },
-     */
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
 
