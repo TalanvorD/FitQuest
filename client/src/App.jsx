@@ -42,11 +42,11 @@ function App() {
     <ApolloProvider client={client}>
       <div id="main-bg" className="flex-column justify-flex-start min-100-vh">
         {/* The Header will not render if the current page is '/Login' */}
-        {currentPage !== '/login' && <Header />}
+        {currentPage !== '/login' && currentPage !== '/signup' && <Header />}
         <div className="container">
           <Outlet />
         </div>
-        {currentPage !== '/login' && <Footer />}
+        {currentPage !== '/login' && currentPage !== '/signup' && <Footer />}
       </div>
     </ApolloProvider>
   );
