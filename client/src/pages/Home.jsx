@@ -1,33 +1,73 @@
+import { Navigate, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
+import "../assets/css/profile.css"
+import XpBar from '../components/XpBar/xpBar';
+import { QUERY_USER, QUERY_ME } from '../utils/queries';
 
-import ThoughtList from '../components/ThoughtList';
-import ThoughtForm from '../components/ThoughtForm';
+import Auth from '../utils/auth';
 
-// import { QUERY_THOUGHTS } from '../utils/queries';
 
 const Home = () => {
-  // const { loading, data } = useQuery(QUERY_THOUGHTS);
-  const thoughts = [];
+  const { username: userParam } = useParams();
+
+  const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
+    variables: { username: userParam },
+  });
+
+  const user = data?.me || data?.user || {};
+  if (
+    Auth.loggedIn() && 
+    /* Run the getProfile() method to get access to the unencrypted token value in order to retrieve the user's username, and compare it to the userParam variable */
+    Auth.getProfile().authenticatedPerson.username === userParam
+  ) {
+    return <Navigate to="/me" />;
+  }
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (!user?.username) {
+    return (
+      <h4>
+        You need to be logged in to see this. Use the navigation links above to
+        sign up or log in!
+      </h4>
+    );
+  }
 
   return (
-    <main id="main-bg">
-      <div id="section1-div" className="flex-row justify-center">
-        <div
-          className="col-12 col-md-10 mb-3 p-3"
-          style={{ border: '1px dotted #1a1a1a' }}
-        >
+    <main id="main">
+      <div id="main-content">
+        <div id="main-content-1">
+          <div id="character">
+            <h2 className="card-title">{user.username}</h2>
+          </div>
+          <div id="character-statbox">
+            <div>
+              <h2 className="card-title stats-card">STATS</h2>
+            </div>
+            <div id="stats-info">
+              <p className="stat-text vit-text">Vitality: {user.vitality}</p>
+              <p className="stat-text str-text">Strength: {user.strength}</p>
+              <p className="stat-text stam-text">Stamina: {user.stamina}</p>
+              <p className="stat-text int-text">Intellect: {user.intellect}</p>
+            </div>
+          </div>
         </div>
-        <div className="col-12 col-md-8 mb-3">
-          {/* {loading ? (
-            <div>Loading...</div>
-          ) : (
-            <ThoughtList
-              thoughts={thoughts}
-              title="Some Feed for Thought(s)..."
-            />
-          )} */}
-        </div>
+        {/* <div className='main-xp'>
+              <XpBar></XpBar>
+        </div> */}
       </div>
+      <img id="main-bg-img" src="../public/homepage-bg-2.webp"></img>
+      <div id="main-img-border">
+        <div id="active-quest-box"></div>
+        <div id="questboard-box"></div>
+        <div id="leaderboard"></div>
+      </div>
+      <div id="section1-div" className="flex-row justify-center">
+      </div>
+
     </main>
   );
 };
