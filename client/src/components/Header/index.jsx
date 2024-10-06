@@ -13,6 +13,10 @@ const Header = () => {
     navigate('/signup');
   };
 
+  const goToTest = () => {
+    navigate('/testpage');
+  };
+
   // const logout = () => {
   //   Auth.logout(); // Assuming this function handles the logout process
   //   navigate('/login'); // Redirect to the login page
@@ -32,6 +36,9 @@ const Header = () => {
               <Link className="btn btn-lg btn-info m-2" to="/me">
                 {Auth.getProfile().authenticatedPerson.username}'s profile
               </Link>
+              <button className="btn btn-lg btn-light m-2" onClick={goToTest}>
+                Test Page
+              </button>
               <button className="btn btn-lg btn-light m-2" onClick={goToLogin}>
                 Logout
               </button>

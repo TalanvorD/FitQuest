@@ -11,8 +11,12 @@
     "stamina": 4,
     "vitality": 2,
     "height": 67,
-    "weightTrack": [{ "recordedWeight": 185, "recordedAt": "01/01/1980" }],
-    "bodyFatTrack": [{ "recordedBodyFat": 21, "recordedAt": "01/01/1980" }]
+    "weightTrack": [{ "recordedWeight": 185, "recordedAt": "01/01/2020" },
+                    { "recordedWeight": 182, "recordedAt": "01/15/2020" },
+                    { "recordedWeight": 181, "recordedAt": "01/23/2020" }],
+    "bodyFatTrack": [{ "recordedBodyFat": 21, "recordedAt": "01/01/2020" },
+                    { "recordedBodyFat": 20, "recordedAt": "01/15/2020" },
+                    { "recordedBodyFat": 20, "recordedAt": "01/23/2020" }]
   },
   {
     "username": "Max Kanat-Alexander",
@@ -26,8 +30,12 @@
     "stamina": 3,
     "vitality": 1,
     "height": 71,
-    "weightTrack": { "recordedWeight": 210 },
-    "bodyFatTrack": { "recordedBodyFat": 24 }
+    "weightTrack": [{ "recordedWeight": 210, "recordedAt": "01/01/2020" },
+                    { "recordedWeight": 208, "recordedAt": "01/15/2020" },
+                    { "recordedWeight": 205, "recordedAt": "01/23/2020" }],
+    "bodyFatTrack": [{ "recordedBodyFat": 23, "recordedAt": "01/01/2020" },
+                    { "recordedBodyFat": 23, "recordedAt": "01/15/2020" },
+                    { "recordedBodyFat": 21, "recordedAt": "01/23/2020" }]
   },
   {
     "username": "Why The Lucky Stiff",
@@ -41,8 +49,12 @@
     "stamina": 9,
     "vitality": 2,
     "height": 74,
-    "weightTrack": { "recordedWeight": 205 },
-    "bodyFatTrack": { "recordedBodyFat": 22 }
+    "weightTrack": [{ "recordedWeight": 205, "recordedAt": "01/01/2020" },
+                    { "recordedWeight": 204, "recordedAt": "01/15/2020" },
+                    { "recordedWeight": 202, "recordedAt": "01/23/2020" }],
+    "bodyFatTrack": [{ "recordedBodyFat": 22, "recordedAt": "01/01/2020" },
+                    { "recordedBodyFat": 21, "recordedAt": "01/15/2020" },
+                    { "recordedBodyFat": 21, "recordedAt": "01/23/2020" }]
   },
   {
     "username": "Lernantino",
@@ -56,7 +68,11 @@
     "stamina": 9,
     "vitality": 18,
     "height": 69,
-    "weightTrack": { "recordedWeight": 169 },
-    "bodyFatTrack": { "recordedBodyFat": 18 }
+    "weightTrack": [{ "recordedWeight": 169, "recordedAt": "01/01/2020" },
+                    { "recordedWeight": 169, "recordedAt": "01/15/2020" },
+                    { "recordedWeight": 171, "recordedAt": "01/23/2020" }],
+    "bodyFatTrack": [{ "recordedBodyFat": 18, "recordedAt": "01/01/2020" },
+                    { "recordedBodyFat": 18, "recordedAt": "01/15/2020" },
+                    { "recordedBodyFat": 18, "recordedAt": "01/23/2020" }]
   }
 ]
