@@ -11,7 +11,7 @@ const UserInfo = ({
     return (
       <div>
         {showTitle && <h3>{title}</h3>}
-        <ul>
+        <ul id="userinfo-stats">
               <li>Level: {user.level}</li>
               <li>XP: {user.expPoints}</li>
               <li>Goal: {user.mainGoal}</li>

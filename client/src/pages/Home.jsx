@@ -61,9 +61,15 @@ const Home = () => {
       </div>
       <img id="main-bg-img" src="../public/homepage-bg-2.webp"></img>
       <div id="main-img-border">
-        <div id="active-quest-box"></div>
-        <div id="questboard-box"></div>
-        <div id="leaderboard"></div>
+        <div id="active-quest-box" className="main-box-containers">
+          <h2 id="active-quest-title" className="box-title">Active Quests</h2>
+        </div>
+        <div id="questboard-box" className="main-box-containers">
+          <h2 id="questboard-title" className="box-title">Quest Board</h2>
+        </div>
+        <div id="leaderboard" className="main-box-containers">
+          <h2 id="leaderboard-title" className="box-title">Leaderboard</h2>
+        </div>
       </div>
       <div id="section1-div" className="flex-row justify-center">
       </div>
