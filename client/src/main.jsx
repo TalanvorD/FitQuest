@@ -8,6 +8,7 @@ import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Profile from './pages/Profile';
 import Error from './pages/Error';
+import TestPage from './pages/TestPage.jsx';
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
       }, {
         path: '/profiles/:username',
         element: <Profile />
+      },
+      {
+        path: '/testpage',
+        element: <TestPage />
       },
     ]
   }
