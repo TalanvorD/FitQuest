@@ -421,22 +421,38 @@ a {
     display: flex;
     align-items: center;
     flex-direction: column;
-    top: -145px;
+    top: -159px;
     width: 100%;
     height: auto;
-    background-color: rgb(30, 30, 43);
+    background: linear-gradient(rgba(95, 95, 184, 0), rgb(23, 23, 32) 1%, rgb(12, 12, 17));
     z-index: 5;
 }
 
-#active-quest-box {
+.main-box-containers {
+    display: flex;
+    flex-direction: column;
     margin-top: 150px;
+}
+
+.box-title {
+    background-color: rgb(158, 11, 11);
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+    color: gold;
+    font-size: 30px;
+    height: 50px;
+    border-radius: 20px 20px 0px 0px;
+    
 }
 
 #active-quest-box, #questboard-box, #leaderboard {
     width: 80%;
     height: 300px;
-    background-color: grey;
+    background: linear-gradient(rgb(141, 52, 52),rgb(112, 40, 40), rgb(88, 31, 31));
     margin-bottom: 50px;
+    box-shadow: inset 0px 0px 30px 5px rgb(158, 11, 11);
+    border-radius: 20px 20px 10px 10px;
 }
 
 @media (max-width: 679px) {
@@ -449,7 +465,7 @@ a {
         border-radius: 10px;
     }
     #main-img-border {
-        top: -145px;
+        top: -161px;
     } 
     #active-quest-box {
         margin-top: 400px;
@@ -460,4 +476,10 @@ a {
         grid-template-rows: repeat(2, 1fr);    /* 2 rows */
         gap: 10px; /* Optional: adds space between grid items */
     }  
+}
+
+/* Test Page */
+
+.center, #userinfo-stats {
+    color: black;
 }
