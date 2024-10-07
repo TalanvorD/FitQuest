@@ -499,6 +499,55 @@ a {
     border-radius: 20px 20px 10px 10px;
 }
 
+#leaderboard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: auto;
+}
+
+#leaderboard-ul {
+    list-style-type: none;
+    font-size: 30px;
+    color: white;
+    width: 96%;
+}
+
+#leaderboard-ul li {
+    margin-bottom: 5px;
+}
+
+#leaderboard-user {
+    color: gold;
+}
+
+#questboard-box {
+    height: auto;
+}
+
+#quest-board-ul {
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+    padding: 0;
+}
+
+#quest-board-li {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-bottom: 4px groove red;
+}
+
+#quest-board-li p {
+    margin-left: 20px;
+}
+
+#quest-board-li h3 {
+    margin-left: 5px;
+}
+
 @media (max-width: 679px) {
     #character-statbox {
         z-index: 6;
@@ -521,6 +570,8 @@ a {
         gap: 10px; /* Optional: adds space between grid items */
     }  
 }
+
+
 
 /* Test Page */
 
