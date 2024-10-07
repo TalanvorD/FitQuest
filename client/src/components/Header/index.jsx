@@ -30,16 +30,16 @@ const Header = () => {
             <h1 className="m-0" id="header-font">Fit Quest</h1>
           </Link>
         </div>
-        <div>
+        <div id="header-right-content">
           {Auth.loggedIn() ? (
             <>
-              <Link className="btn btn-lg btn-info m-2" to="/me">
-                {Auth.getProfile().authenticatedPerson.username}'s profile
+              <Link className="btn btn-lg btn-info m-2 header-links" to="/me" id="profile-link-header">
+                <p>Your Profile</p>
               </Link>
-              <button className="btn btn-lg btn-light m-2" onClick={goToTest}>
+              <button className="btn btn-lg btn-light m-2 header-links-button" onClick={goToTest}>
                 Test Page
               </button>
-              <button className="btn btn-lg btn-light m-2" onClick={goToLogin}>
+              <button className="btn btn-lg btn-light m-2 header-links-button" onClick={goToLogin}>
                 Logout
               </button>
             </>

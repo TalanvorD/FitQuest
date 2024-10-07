@@ -21,8 +21,8 @@ a {
     bottom: -15px;
     align-items: center;
     justify-content: space-evenly;
-    background: linear-gradient(rgb(223, 221, 186) ,rgb(187, 186, 152) 40%, rgb(63, 163, 146));
-    height: 2.8em;
+    background: linear-gradient(rgb(175, 28, 163) ,rgb(143, 22, 133) 40%, rgb(105, 15, 98));
+    height: 3em;
     margin: 0 auto;
     border-radius: 50px;
     width: 70%;
@@ -34,6 +34,8 @@ a {
     margin: 0;
     text-decoration: none;
     color: gold;
+    text-shadow: 2px 2px 2px black;
+    font-style: italic;
 }
 
 #header-content {
@@ -41,6 +43,48 @@ a {
     width: 100%;
     justify-content: space-around;
     align-items: center;
+}
+
+#header-right-content {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 50%;
+}
+
+.header-links {
+    display: flex;
+    align-items: center;
+    font-size: 1.4em;
+    color: gold;
+    height: 20px;
+    font-weight: bold;
+    border: none;
+    text-shadow: 2px 2px 2px black;
+    transition: transform 0.5.s;
+}
+
+.header-links:hover {
+    transform: scale(1.1);
+
+}
+
+.header-links-button {
+    background-color: rgb(4, 0, 36);
+    color: rgb(158, 3, 3);
+    padding: 5px 15px;
+    font-size: 1.1em;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    transition: color 0.7s,
+        background-color 0.7s;
+}
+
+.header-links-button:hover {
+    color: gold;
+    background-color: rgb(40, 0, 134);
+    cursor: pointer;
 }
 
 /* LOGIN / SIGNUP CSS */
