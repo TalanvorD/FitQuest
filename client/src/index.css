@@ -455,6 +455,31 @@ a {
     border-radius: 20px 20px 10px 10px;
 }
 
+#leaderboard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: auto;
+}
+
+#leaderboard-ul {
+    list-style-type: none;
+    font-size: 30px;
+    color: white;
+    width: 96%;
+}
+
+#leaderboard-ul li {
+    margin-bottom: 5px;
+    border-bottom: 4px groove red;
+
+}
+
+#leaderboard-user {
+    color: gold;
+}
+
 @media (max-width: 679px) {
     #character-statbox {
         z-index: 6;
@@ -477,6 +502,8 @@ a {
         gap: 10px; /* Optional: adds space between grid items */
     }  
 }
+
+
 
 /* Test Page */
 

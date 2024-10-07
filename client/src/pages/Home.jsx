@@ -2,7 +2,7 @@ import { Navigate, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import "../assets/css/profile.css"
 import XpBar from '../components/XpBar/xpBar';
-import { QUERY_USER, QUERY_ME } from '../utils/queries';
+import { QUERY_USER, QUERY_ME, QUERY_ALL_USERS } from '../utils/queries';
 
 import Auth from '../utils/auth';
 
@@ -13,6 +13,10 @@ const Home = () => {
   const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
     variables: { username: userParam },
   });
+  // just added
+  const { data: allUsersData } = useQuery(QUERY_ALL_USERS);
+  const sortedUsers = allUsersData ? [...allUsersData.users].sort((a, b) => b.expPoints - a.expPoints) : [];
+
 
   const user = data?.me || data?.user || {};
   if (
@@ -68,7 +72,14 @@ const Home = () => {
           <h2 id="questboard-title" className="box-title">Quest Board</h2>
         </div>
         <div id="leaderboard" className="main-box-containers">
-          <h2 id="leaderboard-title" className="box-title">Leaderboard</h2>
+          <h2 id="leaderboard-title leaderboard-box" className="box-title">Leaderboard</h2>
+          <ul id="leaderboard-ul">
+            {sortedUsers.map(user => (
+            <li key={user._id}>
+              <strong id="leaderboard-user">{user.username}</strong> - Exp Points: {user.expPoints}
+            </li>
+          ))}
+          </ul>
         </div>
       </div>
       <div id="section1-div" className="flex-row justify-center">
