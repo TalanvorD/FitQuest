@@ -13,10 +13,10 @@ const UserInfo = ({
 
 
   if (user.weightTrack[0] && user.bodyFatTrack[0]) {
-    const weightCheck = user.weightTrack.slice(-1)[0].recordedWeight;
-    const bodyfatCheck = user.bodyFatTrack.slice(-1)[0].recordedBodyFat;
+    weightCheck = user.weightTrack.slice(-1)[0].recordedWeight;
+    bodyfatCheck = user.bodyFatTrack.slice(-1)[0].recordedBodyFat;
     const bmiCalc = ((weightCheck * 703) / user.height) / user.height;
-    const userBmi = bmiCalc.toFixed();
+    userBmi = bmiCalc.toFixed();
   };
 
     return (
