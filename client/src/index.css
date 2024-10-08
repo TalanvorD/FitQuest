@@ -493,7 +493,7 @@ a {
 
 #active-quest-box, #questboard-box, #leaderboard {
     width: 80%;
-    height: 300px;
+    height: auto;
     background: linear-gradient(rgb(141, 52, 52),rgb(112, 40, 40), rgb(88, 31, 31));
     margin-bottom: 50px;
     box-shadow: inset 0px 0px 30px 5px rgb(158, 11, 11);
@@ -508,46 +508,115 @@ a {
     height: auto;
 }
 
-#leaderboard-ul {
-    list-style-type: none;
+#leader-official-box {
+    width: 100%;
+}
+
+#leaderboard-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#leaderboard-txt-box {
     font-size: 30px;
-    color: white;
-    width: 96%;
+    border-bottom: 5px groove red;
+    width: 100%;
 }
 
-#leaderboard-ul li {
-    margin-bottom: 5px;
-}
-
-#leaderboard-user {
+#leaderboard-txt, #leaderboard-user {
     color: gold;
+}
+
+#leaderboard-txt-xp {
+    color: white;
 }
 
 #questboard-box {
     height: auto;
 }
 
-#quest-board-ul {
+#quest-main-content-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: left;
+}
+
+#quest-main-content-div h3 {
+    text-align: center;
+    color: gold;
+    font-size: 25px;
+}
+
+#quest-main-content-div li {
+    color: white;
+    margin-bottom: 5px;
+}
+
+#quest-main-content-div button {
+    width: 50%;
+    margin-bottom: 10px;
+}
+
+#quest-list-box {
+    border-bottom: 5px groove red;
+}
+
+#claim-button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#claim-button button {
+    width: 200px;
+    height: 50px;
+    border: none;
+    border-radius: 15px;
+    font-size: 20px;
+    background-color: rgb(12, 12, 17);
+    color: gold;
+    cursor: pointer;
+    transition: color 0.8s,
+    background-color 0.8s,
+    font-weight 0.8s;
+}
+
+#claim-button button:hover {
+    color: rgb(12, 12, 17);
+    background-color: gold;
+    box-shadow: 0px 0px 5px 5px rgb(12, 12, 17);
+}
+
+#questboard-title {
+    color: gold;
+}
+
+#quest-list-box {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+    text-align: left;
+}
+
+#quest-list-box ul {
     display: flex;
     flex-direction: column;
     font-size: 20px;
-    padding: 0;
 }
 
-#quest-board-li {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    border-bottom: 4px groove red;
+#quest-list-box li {
+    list-style: none;
 }
 
-#quest-board-li p {
-    margin-left: 20px;
+#active-quest-box  h3 {
+    color: gold;
+    text-align: center;
 }
 
-#quest-board-li h3 {
-    margin-left: 5px;
-}
 
 @media (max-width: 679px) {
     #character-statbox {
