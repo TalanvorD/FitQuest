@@ -1,5 +1,6 @@
 import { gql } from '@apollo/client';
 
+/* Just added */
 export const QUERY_USER = gql`
   query user($username: String!) {
     user(username: $username) {
@@ -91,6 +92,24 @@ query getUsers {
     level
   }
 }
+`;
+
+export const QUERY_ALL_USERS = gql`
+  query users {
+    users {
+      _id
+      username
+      email
+      level
+      expPoints
+      mainGoal
+      strength
+      intellect
+      stamina
+      vitality
+      createdAt
+    }
+  }
 `;
 
 export const QUERY_ACTIVITIES = gql`

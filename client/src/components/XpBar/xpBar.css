@@ -10,4 +10,13 @@
   height: 100%;
   background-color: #76c7c0;
   transition: width 0.3s ease; /* Smooth transition */
+  
+}
+
+.xp-fill::after{
+  content: var(--xp-percentage);
+  color: black;
+  position: relative;
+  left: 260px;
+  top: 6px;
 }

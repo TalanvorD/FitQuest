@@ -67,7 +67,7 @@ const Login = (props) => {
                   <button className="login-page-buttons login-button">LOGIN</button>
                   <button className="login-page-buttons register-button" onClick={goToSignup}>REGISTER</button>
                 </div>
-                {/* <img className="dragon-outline" src="./public/dragon-outline.webp"></img> */}
+                <img className="dragon-outline" src="./public/dragon-outline.webp"></img>
                 <h2 id="login-title">Fit Quest</h2>
                 <p id="email-text">Your Email</p>
                 <input
