@@ -2,6 +2,7 @@ import { useQuery, useMutation } from '@apollo/client';
 import { REMOVE_QUEST } from '../../utils/mutations';
 import { QUERY_ME } from '../../utils/queries';
 // import Auth from '../../utils/auth';
+import '../../index.css';
 
 const UserQuests = ({
     quests,
@@ -36,10 +37,10 @@ const UserQuests = ({
     };
 
     return (
-        <div>
+        <div id="quest-main-content-div">
             {showTitle && <h3 id="userinfo-stats">{title}</h3>}
             {quests && quests.map((activeQuests) => (
-                <div key={activeQuests._id} className="card mb-3">
+                <div key={activeQuests._id} className="card mb-3" id="quest-list-box"> 
                     <div className="card-body bg-light p-2">
                         <ul id="userinfo-stats">
                             <li>Title: {activeQuests.title}</li>
@@ -48,7 +49,9 @@ const UserQuests = ({
                             <li>XP Value: {activeQuests.expValue}</li>
                             <li>Time: {activeQuests.time}</li>
                         </ul>
+                        <div id="claim-button">
                         <button onClick={() => handleRemoveQuest(activeQuests._id, userId)}>Finish this quest!</button>
+                        </div>
                     </div>
                 </div>
             ))}

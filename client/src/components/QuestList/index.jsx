@@ -1,6 +1,7 @@
 import { useQuery, useMutation } from '@apollo/client';
 import { SAVE_QUEST } from '../../utils/mutations';
 import { QUERY_ME } from '../../utils/queries';
+import '../../index.css';
 
 const QuestList = ({
     questList,
@@ -30,19 +31,21 @@ const QuestList = ({
     };
 
     return (
-        <div>
+        <div id="quest-main-content-div">
             {showTitle && <h3 id="userinfo-stats">{title}</h3>}
             {questList && questList.quests.map((availableQuests) => (
-                <div key={availableQuests._id} className="card mb-3">
-                    <div key={availableQuests._id} className="card-body p-2">
+                <div key={availableQuests._id} className="card mb-3" id="quest-status">
+                    <div key={availableQuests._id} className="card-body p-2" id="quest-list-box">
                         <ul id="userinfo-stats">
-                            <li>Title: {availableQuests.title}</li>
+                            <li>{availableQuests.title}</li>
                             <li>Description: {availableQuests.description}</li>
                             <li>Stat Type: {availableQuests.statType}</li>
                             <li>XP Value: {availableQuests.expValue}</li>
                             <li>Time: {availableQuests.time}</li>
                         </ul>
+                        <div id="claim-button">
                         <button onClick={() => handleSaveQuest(availableQuests._id, userId)}>Claim this quest!</button>
+                        </div>
                     </div>
                 </div>
             ))}
