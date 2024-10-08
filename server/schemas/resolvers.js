@@ -4,10 +4,13 @@ const { signToken, AuthenticationError } = require('../utils/auth');
 const resolvers = {
   Query: {
     users: async () => {
-      return User.find().populate('activities');
+      return User.find().populate('activities').populate('activeQuests');
+    },
+    getUsers: async () => {
+      return User.find().sort({ level: -1 })
     },
     user: async (parent, { username }) => {
-      return User.findOne({ username }).populate('activities');
+      return User.findOne({ username }).populate('activities').populate('activeQuests');
     },
     activities: async (parent, { username }) => {
       const params = username ? { username } : {};
@@ -16,12 +19,12 @@ const resolvers = {
     activity: async (parent, { activityId }) => {
       return Activity.findOne({ _id: activityId });
     },
-    quests: async (parent, { questsId }) => {
+    quests: async () => {
       return Quests.find();
     },
     me: async (parent, args, context) => {
       if (context.user) {
-        return User.findOne({ _id: context.user._id }).populate('activities');
+        return User.findOne({ _id: context.user._id }).populate('activities').populate('activeQuests');
       }
       throw AuthenticationError;
     },
@@ -59,7 +62,7 @@ const resolvers = {
 
       throw AuthenticationError;
     },
-    addActivity: async (parent, { name, calorieBurn, statType, activityCreator }, context) => {
+    addActivity: async (parent, { name, calorieBurn, statType }, context) => {
       if (context.user) {
         const activity = await Activity.create({
           name,
@@ -92,6 +95,23 @@ const resolvers = {
         return activity;
       }
       throw AuthenticationError;
+    },
+    saveQuest: async (parent, { questId, userId } ) => { // Saves a book to the DB
+        const updatedUser = await User.findByIdAndUpdate(
+          { _id: userId },
+          { $addToSet: { activeQuests: questId } },
+          { new: true }
+        );
+        return updatedUser;
+    },
+
+    removeQuest: async (parent, { questId, userId } ) => { // Removes a book from the DB
+        const updatedUser = await User.findByIdAndUpdate(
+          { _id: userId },
+          { $pull: { activeQuests: questId } },
+          { new: true }
+        );
+        return updatedUser;
     },
   },
 };

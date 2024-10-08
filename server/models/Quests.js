@@ -18,6 +18,10 @@ const questsSchema = new Schema({
     type: Number,
     required: 'You need to give this quest a value for experience!',
   },
+  time: { // Daily, Weekly, Monthly
+    type: String,
+    required: 'You need to give this quest a time period!',
+  },
 });
 
 const Quests = model('Quests', questsSchema);

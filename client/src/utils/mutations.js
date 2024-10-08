@@ -26,7 +26,7 @@ export const ADD_USER = gql`
 
 export const UPDATE_USER = gql`
   mutation updateUser($username: String!, $email: String!, $password: String!) {
-    addUser(username: $username, email: $email, password: $password) {
+    updatedUser(username: $username, email: $email, password: $password) {
       token
       user {
         _id
@@ -48,6 +48,37 @@ export const ADD_ACTIVITY = gql`
     }
   }
 `;
+
+export const SAVE_QUEST = gql`
+mutation SaveQuest($questId: ID!, $userId: ID!) {
+  saveQuest(questId: $questId, userId: $userId) {
+    activeQuests {
+      _id
+      title
+      description
+      statType
+      expValue
+      time
+    }
+  }
+}
+`;
+
+export const REMOVE_QUEST = gql`
+  mutation RemoveQuest($questId: ID!, $userId: ID!) {
+  removeQuest(questId: $questId, userId: $userId) {
+    activeQuests {
+      _id
+      title
+      description
+      statType
+      expValue
+      time
+    }
+  }
+}
+`;
+
 
 //Delete this later
 export const ADD_THOUGHT = gql`

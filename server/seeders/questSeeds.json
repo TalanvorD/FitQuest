@@ -3,31 +3,36 @@
       "title": "Push Ups",
       "description": "Do 30 pushups for 30 exp",
       "statType": "Strength",
-      "expValue": 30
+      "expValue": 30,
+      "time": "Daily"
     },
     {
         "title": "Dips",
         "description": "Do 10 dips for 10 exp",
         "statType": "Strength",
-        "expValue": 10
+        "expValue": 10,
+        "time": "Daily"
     },
     {
         "title": "Treadmill",
         "description": "Walk on the treadmill for 15 minutes for 15 exp",
         "statType": "Stamina",
-        "expValue": 15
+        "expValue": 15,
+        "time": "Daily"
     },
     {
         "title": "Swim Laps",
         "description": "Do 20 laps for 20 exp",
         "statType": "Vitality",
-        "expValue": 20
+        "expValue": 20,
+        "time": "Daily"
     },
     {
         "title": "Intelligence Quest",
         "description": "What quests can we do for Intelligence?",
         "statType": "Intelligence",
-        "expValue": 5
+        "expValue": 5,
+        "time": "Daily"
     }
   ]
   

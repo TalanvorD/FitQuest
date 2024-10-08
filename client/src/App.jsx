@@ -8,7 +8,7 @@ import { setContext } from '@apollo/client/link/context';
 import { Outlet, useLocation, Navigate  } from 'react-router-dom';
 
 import Header from './components/Header';
-import Footer from './components/Footer';
+//import Footer from './components/Footer';
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -48,7 +48,8 @@ function App() {
         {!isAuthenticated && currentPage !== '/login' && currentPage !== '/signup' && <Navigate to="/login" />}
           <Outlet />
         </div>
-        {currentPage !== '/login' && currentPage !== '/signup' && <Footer />}
+        {currentPage !== '/login' && currentPage !== '/signup'}
+        {/* {currentPage !== '/login' && currentPage !== '/signup' && <Footer />} */}
       </div>
     </ApolloProvider>
   );
