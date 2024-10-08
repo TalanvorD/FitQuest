@@ -1,8 +1,8 @@
 .hero {
   background-image: url('/Users/ryanshaffer/bootcamp/FitQuest/client/src/assets/greathall.jpg');
   background-size: cover;
-  height: 710px;
-  width: 710px;
+  height: 850px;
+  width: 1080px;
   background-position: center;
 }
 
@@ -19,13 +19,18 @@
   width: 50%;
   padding: 5px;
   color: white;
-  border: 2px solid white;
+  border: 5px double brown;
 }
 
 .profile-section {
   width: 50%;
   color: white;
   padding: 5px;
-  border: 2px solid white;
+  border: 5px double brown;
 
 }
+
+li {
+  list-style-type: circle;
+}
+
