@@ -69,4 +69,5 @@ const typeDefs = `#graphql
   }
 `;
 //    addUser(username: String!, email: String!, password: String!, mainGoal: String!, height: Int, weight: [Int], bodyfat: [Int]): Auth
+
 module.exports = typeDefs;

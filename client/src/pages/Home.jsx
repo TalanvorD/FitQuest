@@ -36,6 +36,10 @@ const Home = () => {
     return <Navigate to="/me" />;
   }
 
+  if (!Auth.loggedIn()) {
+    return <Navigate to="/landingpage" />;
+  }
+
   if (loading) {
     return <div>Loading...</div>;
   }

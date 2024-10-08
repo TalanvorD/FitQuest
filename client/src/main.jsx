@@ -9,6 +9,7 @@ import Login from './pages/Login';
 import Profile from './pages/Profile';
 import Error from './pages/Error';
 import TestPage from './pages/TestPage.jsx';
+import Landingpage from './pages/Landingpage.jsx';
 
 const router = createBrowserRouter([
   {
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
         path: '/testpage',
         element: <TestPage />
       },
+      {
+        path: '/landingpage',
+        element: <Landingpage />
+      }
     ]
   }
 ])
