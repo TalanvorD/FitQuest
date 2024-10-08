@@ -570,6 +570,18 @@ a {
         grid-template-rows: repeat(2, 1fr);    /* 2 rows */
         gap: 10px; /* Optional: adds space between grid items */
     }  
+    #header-font {
+        font-size: 1.2em;
+    }
+    #header-content {
+        display: flex;
+        justify-content: space-evenly;
+        font-size: 0.8em;
+        text-align: center;
+    }
+    .header-links-button {
+        margin-left: 10px;
+    }
 }
 
 
