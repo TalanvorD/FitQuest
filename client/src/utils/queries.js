@@ -28,9 +28,70 @@ export const QUERY_USER = gql`
       recordedBodyFat
       recordedAt
     }
+    activeQuests {
+        _id
+        title
+        description
+        statType
+        expValue
+        time
+      }
       createdAt
     }
   }
+`;
+
+export const QUERY_USERS = gql`
+query users {
+  users {
+    username
+    _id
+    email
+    level
+    expPoints
+    mainGoal
+    strength
+    intellect
+    stamina
+    vitality
+    createdAt
+    activities {
+      _id
+      name
+      calorieBurn
+      createdAt
+      statType
+      activityCreator
+    }
+    height
+    weightTrack {
+      recordedWeight
+      recordedAt
+    }
+    bodyFatTrack {
+      recordedBodyFat
+      recordedAt
+    }
+    activeQuests {
+      _id
+      title
+      description
+      statType
+      expValue
+      time
+    }
+  }
+}
+`;
+
+export const USERS_LEADERBOARD = gql`
+query getUsers {
+  getUsers {
+    _id
+    username
+    level
+  }
+}
 `;
 
 export const QUERY_ALL_USERS = gql`
@@ -72,6 +133,7 @@ export const QUERY_QUESTS = gql`
       description
       statType
       expValue
+      time
     }
   }
 `;
@@ -98,12 +160,20 @@ export const QUERY_ME = gql`
       weightTrack {
       recordedWeight
       recordedAt
-    }
+      }
       bodyFatTrack {
       recordedBodyFat
       recordedAt
-    }
-      createdAt
       }
+      activeQuests {
+        _id
+        title
+        description
+        statType
+        expValue
+        time
+      }
+      createdAt
+    }
   }
 `;

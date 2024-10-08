@@ -9,7 +9,7 @@ import { Outlet, useLocation, Navigate  } from 'react-router-dom';
 
 
 import Header from './components/Header';
-import Footer from './components/Footer';
+//import Footer from './components/Footer';
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({

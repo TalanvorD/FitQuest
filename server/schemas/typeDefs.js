@@ -16,6 +16,7 @@ const typeDefs = `#graphql
     height: Int
     weightTrack: [WeightTrack]
     bodyFatTrack: [BodyFatTrack]
+    activeQuests: [Quests]
   }
 
   type WeightTrack{
@@ -34,6 +35,7 @@ const typeDefs = `#graphql
     description: String
     statType: String
     expValue: Int
+    time: String
   }
   
   type Activity {
@@ -53,6 +55,7 @@ const typeDefs = `#graphql
   type Query {
     users: [User]
     user(username: String!): User
+    getUsers: [User]
     activities(username: String): [Activity]
     activity(activityId: ID!): Activity
     me: User
@@ -64,10 +67,12 @@ const typeDefs = `#graphql
     updateUser(mainGoal: String, weight: [Int], bodyfat: [Int]): User
     removeUser(userId: ID!): Auth
     login(email: String!, password: String!): Auth
-    addActivity(name: String!, calorieBurn: Int, statType: String, activityCreator: String): Activity
+    addActivity(name: String!, calorieBurn: Int, statType: String): Activity
     removeActivity(activityId: ID!): Activity
+    saveQuest(questId: ID!, userId: ID!): User
+    removeQuest(questId: ID!, userId: ID!): User
   }
 `;
-//    addUser(username: String!, email: String!, password: String!, mainGoal: String!, height: Int, weight: [Int], bodyfat: [Int]): Auth
 
 module.exports = typeDefs;
+

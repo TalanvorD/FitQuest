@@ -58,10 +58,10 @@ const userSchema = new Schema({
       ref: 'Activity',
     },
   ],
-  height: {
+  height: { // Inches
     type: Number,
   },
-  weightTrack: [
+  weightTrack: [ // Pounds
     {
       recordedWeight: {
         type: Number,
@@ -83,6 +83,12 @@ const userSchema = new Schema({
         default: Date.now,
         get: (timestamp) => dateFormat(timestamp),
       },
+    },
+  ],
+  activeQuests: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Quests',
     },
   ],
 });
