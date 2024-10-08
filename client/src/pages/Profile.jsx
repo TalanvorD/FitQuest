@@ -36,7 +36,7 @@ const Profile = () => {
       </h4>
     );
   }
-
+  
   return (
     <div>
       <div className='center'>
@@ -47,12 +47,18 @@ const Profile = () => {
           </h2>
           <div className='grid'>
             <div className='profile-section'>
-              {user.username}
+              <h3>{user.username}</h3>
+              <ul>
+              <li className="stat-text vit-text">Vitality: {user.vitality}</li>
+              <li className="stat-text str-text">Strength: {user.strength}</li>
+              <li className="stat-text stam-text">Stamina: {user.stamina}</li>
+              <li className="stat-text int-text">Intellect: {user.intellect}</li>
+              </ul>
               {/* user character image */}
               {/* user stats (weight height goal) */}
             </div>
             <div className='xp-section'>
-              <XpBar></XpBar>
+              <XpBar xp={user.expPoints} level={user.level}></XpBar>
             </div>
             {/* current quest */}
             {/* a section to show trends in weight and maybe even activity */}
