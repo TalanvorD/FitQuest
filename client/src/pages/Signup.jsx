@@ -37,7 +37,10 @@ const Signup = () => {
         variables: { ...formState },
       });
 
-      Auth.login(data.addUser.token);
+      if (data && data.addUser) {
+        const currentPath = window.location.pathname;
+        Auth.login(data.addUser.token, currentPath);
+      }
     } catch (e) {
       console.error(e);
     }
