@@ -37,7 +37,10 @@ const Login = (props) => {
         variables: { ...formState },
       });
 
-      Auth.login(data.login.token);
+      if (data && data.login) { 
+        const currentPath = window.location.pathname; 
+        Auth.login(data.login.token, currentPath); 
+    }
     } catch (e) {
       console.error(e);
     }
