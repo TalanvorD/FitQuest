@@ -71,7 +71,7 @@ const Signup = () => {
                     placeholder="Username"
                     name="username"
                     type="text"
-                    value={formState.username} // Corrected from formState.name to formState.username
+                    value={formState.username}
                     onChange={handleChange}
                   />
                   <p id="signup-email-txt">Enter Email</p>
