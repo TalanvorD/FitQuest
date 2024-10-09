@@ -53,15 +53,19 @@ const resolvers = {
 
       return { token, user };
     },
-    updateUser: async (parent, args, context) => {
-      if (context.user) {
-        return User.findByIdAndUpdate(context.user.id, args, {
-          new: true,
-        });
-      }
 
-      throw AuthenticationError;
+    updateUser: async (parent, { mainGoal, height, weight, bodyfat, userId }) => {
+      return User.findByIdAndUpdate(
+        { _id: userId },
+        { mainGoal: mainGoal, height: height,
+          $push: { weightTrack: { recordedWeight: weight } },
+          $push: { bodyFatTrack: { recordedBodyFat: bodyfat } } },
+        // { $addToSet: { weightTrack: weight } },
+        // { $addToSet: { bodyFatTrack: bodyfat } },
+        { new: true }
+      );
     },
+
     addActivity: async (parent, { name, calorieBurn, statType }, context) => {
       if (context.user) {
         const activity = await Activity.create({
@@ -96,22 +100,23 @@ const resolvers = {
       }
       throw AuthenticationError;
     },
-    saveQuest: async (parent, { questId, userId } ) => { // Saves a book to the DB
-        const updatedUser = await User.findByIdAndUpdate(
-          { _id: userId },
-          { $addToSet: { activeQuests: questId } },
-          { new: true }
-        );
-        return updatedUser;
+
+    saveQuest: async (parent, { questId, userId }) => { // Saves a book to the DB
+      const updatedUser = await User.findByIdAndUpdate(
+        { _id: userId },
+        { $addToSet: { activeQuests: questId } },
+        { new: true }
+      );
+      return updatedUser;
     },
 
-    removeQuest: async (parent, { questId, userId } ) => { // Removes a book from the DB
-        const updatedUser = await User.findByIdAndUpdate(
-          { _id: userId },
-          { $pull: { activeQuests: questId } },
-          { new: true }
-        );
-        return updatedUser;
+    removeQuest: async (parent, { questId, userId }) => { // Removes a book from the DB
+      const updatedUser = await User.findByIdAndUpdate(
+        { _id: userId },
+        { $pull: { activeQuests: questId } },
+        { new: true }
+      );
+      return updatedUser;
     },
   },
 };

@@ -25,15 +25,21 @@ export const ADD_USER = gql`
 `;
 
 export const UPDATE_USER = gql`
-  mutation updateUser($username: String!, $email: String!, $password: String!, $bodyFatTrack: Number!, $weightTrack: Number!, $height: Number!, $mainGoal: String!) {
-    addUser(username: $username, email: $email, password: $password) {
-      token
-      user {
-        _id
-        username
-      }
+mutation UpdateUser($userId: ID!, $mainGoal: String, $height: Int, $weight: Int, $bodyfat: Int) {
+  updateUser(userId: $userId, mainGoal: $mainGoal, height: $height, weight: $weight, bodyfat: $bodyfat) {
+    username
+    mainGoal
+    height
+    weightTrack {
+      recordedWeight
+      recordedAt
+    }
+    bodyFatTrack {
+      recordedBodyFat
+      recordedAt
     }
   }
+}
 `;
 
 export const ADD_ACTIVITY = gql`

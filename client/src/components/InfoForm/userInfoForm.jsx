@@ -2,7 +2,9 @@ import { useState } from 'react';
 import { UPDATE_USER } from '../../utils/mutations';
 import { useMutation } from '@apollo/client';
 
-const UserInfoForm = () => {
+const UserInfoForm = ({
+  user,
+}) => {
   const [mainGoal, setGoal] = useState('');
   const [height, setHeight] = useState('');
   const [weightTrack, setWeight] = useState('');
@@ -10,6 +12,8 @@ const UserInfoForm = () => {
   const [error, setError] = useState('');
 
   const [updateUser] = useMutation(UPDATE_USER);
+
+  console.log(user._id);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -23,8 +27,9 @@ const UserInfoForm = () => {
         variables: { 
           mainGoal, 
           height: parseFloat(height), 
-          weightTrack: parseFloat(weightTrack), 
-          bodyFatTrack: parseFloat(bodyFatTrack) 
+          weight: parseFloat(weightTrack), 
+          bodyfat: parseFloat(bodyFatTrack),
+          userId: user._id,
         } 
       });
       // Clear the form fields after submission
@@ -45,10 +50,10 @@ const UserInfoForm = () => {
       <label>Goal:</label>
       <select id="goal" value={mainGoal} onChange={(e) => setGoal(e.target.value)} required>
         <option value="">Select your goal</option>
-        <option value="strength">Strength</option>
-        <option value="intellect">Intellect</option>
-        <option value="vitality">Vitality</option>
-        <option value="stamina">Stamina</option>
+        <option value="Strength">Strength</option>
+        <option value="Intellect">Intellect</option>
+        <option value="Vitality">Vitality</option>
+        <option value="Stamina">Stamina</option>
       </select>
       <br />
       <label>Height (in):</label>

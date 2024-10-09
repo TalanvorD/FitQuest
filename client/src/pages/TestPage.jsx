@@ -1,5 +1,7 @@
 import { Navigate, useParams } from 'react-router-dom';
 import { useQuery, useMutation } from '@apollo/client';
+import React, { useRef, useEffect, useState } from "react";
+import { select, line, curveCardinal } from "d3";
 import "../assets/css/profile.css"
 import { QUERY_USER, QUERY_USERS, USERS_LEADERBOARD, QUERY_ME, QUERY_QUESTS } from '../utils/queries';
 import UserWeight from '../components/UserWeight';
@@ -8,6 +10,7 @@ import UserInfo from '../components/UserInfo';
 import UserQuests from '../components/UserQuests';
 import QuestList from '../components/QuestList';
 import Leaderboard from '../components/Leaderboard';
+import UserChart from '../components/UserChart';
 
 import Auth from '../utils/auth';
 import { REMOVE_QUEST } from '../utils/mutations';
@@ -151,7 +154,14 @@ const TestPage = () => {
             </div>
           </div>
         </div>
+        <div>
       </div>
+      <UserChart
+                user={user}
+                title={`Chart:`}
+                showTitle={true}
+              />
+        </div>
     </div>
   );
 };

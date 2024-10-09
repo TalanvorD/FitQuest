@@ -64,7 +64,7 @@ const typeDefs = `#graphql
 
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
-    updateUser(mainGoal: String, weight: [Int], bodyfat: [Int]): User
+    updateUser(userId: ID!, mainGoal: String, height: Int, weight: Int, bodyfat: Int): User
     removeUser(userId: ID!): Auth
     login(email: String!, password: String!): Auth
     addActivity(name: String!, calorieBurn: Int, statType: String): Activity
