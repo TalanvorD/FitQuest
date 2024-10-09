@@ -5,6 +5,7 @@ import "../assets/css/profile.css"
 // import ThoughtList from '../components/ThoughtList';
 import XpBar from '../components/XpBar/xpBar';
 import { QUERY_USER, QUERY_ME } from '../utils/queries';
+import UserInfoForm from '../components/InfoForm/userInfoForm';
 
 import Auth from '../utils/auth';
 
@@ -63,6 +64,7 @@ const Profile = () => {
             {/* current quest */}
             {/* a section to show trends in weight and maybe even activity */}
           </div>
+          <UserInfoForm user={user} title={`Title for this`} showTitle={true}></UserInfoForm>
 
           {/* <div className="col-12 col-md-10 mb-5">
             <ThoughtList
