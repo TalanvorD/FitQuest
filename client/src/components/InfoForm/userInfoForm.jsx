@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { UPDATE_USER } from '../../utils/mutations';
+import { QUERY_ME } from '../../utils/queries';
 import { useMutation } from '@apollo/client';
 
 const UserInfoForm = ({
@@ -22,6 +23,11 @@ const UserInfoForm = ({
       return;
     }
 
+    const { data } = await removeQuest({  // Mutator function that removes a quest by id from a users activeQuest list
+      variables: { questId, userId },
+      refetchQueries:  [{ query: QUERY_ME }, 'me']}
+    );
+
     try {
       await updateUser({ 
         variables: { 
@@ -29,9 +35,10 @@ const UserInfoForm = ({
           height: parseFloat(height), 
           weight: parseFloat(weightTrack), 
           bodyfat: parseFloat(bodyFatTrack),
-          userId: user._id,
-        } 
-      });
+          userId: user._id
+        },
+        refetchQueries:  [{ query: QUERY_ME }, 'me']} // Refetches the users info after submission
+      );
       // Clear the form fields after submission
       setGoal('');
       setHeight('');

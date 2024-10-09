@@ -7,6 +7,7 @@ import '../../index.css';
 const UserQuests = ({
     quests,
     userId,
+    user,
     title,
     showTitle = true,
 }) => {
@@ -30,7 +31,7 @@ const UserQuests = ({
           );
         if (data) { console.log(`The quest has been removed.`); }
   
-        if (error) { console.log("An error has occured while removed this quest!", error); }
+        if (error) { console.log("An error has occured while removing this quest!", error); }
       } catch (err) {
         console.error(err);
       }
