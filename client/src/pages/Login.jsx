@@ -29,7 +29,7 @@ const Login = (props) => {
   };
 
   // submit form
-  const handleFormSubmit = async (event) => {
+  const handleLoginSubmit = async (event) => {
     event.preventDefault();
     console.log(formState);
     try {
@@ -37,7 +37,10 @@ const Login = (props) => {
         variables: { ...formState },
       });
 
-      Auth.login(data.login.token);
+      if (data && data.login) { 
+        const currentPath = window.location.pathname; 
+        Auth.login(data.login.token, currentPath); 
+    }
     } catch (e) {
       console.error(e);
     }
@@ -62,7 +65,7 @@ const Login = (props) => {
                 <Link to="/">back to the homepage.</Link>
               </p>
             ) : (
-              <form className="login-form" onSubmit={handleFormSubmit}>
+              <form className="login-form" onSubmit={handleLoginSubmit}>
                 <div className="login-btn-container">
                   <button className="login-page-buttons login-button">LOGIN</button>
                   <button className="login-page-buttons register-button" onClick={goToSignup}>REGISTER</button>

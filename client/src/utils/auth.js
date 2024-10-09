@@ -27,9 +27,16 @@ class AuthService {
     return localStorage.getItem('id_token');
   }
 
-  login(idToken) {
+  login(idToken, currentPath) {
     localStorage.setItem('id_token', idToken);
-    window.location.assign('/');
+
+    if (currentPath === '/login') {
+        window.location.assign('/'); // Redirect to homepage
+    } else if (currentPath === '/signup') {
+        window.location.assign('/formpage'); // Redirect to formpage
+    } else {
+        window.location.assign('/formpage'); // Default redirect if not on login or signup
+    }
   }
 
   logout() {
