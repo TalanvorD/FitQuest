@@ -25,11 +25,12 @@ export const ADD_USER = gql`
 `;
 
 export const UPDATE_USER = gql`
-mutation UpdateUser($userId: ID!, $mainGoal: String, $height: Int, $weight: Int, $bodyfat: Int) {
-  updateUser(userId: $userId, mainGoal: $mainGoal, height: $height, weight: $weight, bodyfat: $bodyfat) {
+mutation UpdateUser($userId: ID!, $mainGoal: String, $height: Int, $weight: Int, $bodyfat: Int, $exppoints: Int) {
+  updateUser(userId: $userId, mainGoal: $mainGoal, height: $height, weight: $weight, bodyfat: $bodyfat, exppoints: $exppoints) {
     username
     mainGoal
     height
+    expPoints
     weightTrack {
       recordedWeight
       recordedAt
@@ -71,8 +72,9 @@ mutation SaveQuest($questId: ID!, $userId: ID!) {
 `;
 
 export const REMOVE_QUEST = gql`
-  mutation RemoveQuest($questId: ID!, $userId: ID!) {
-  removeQuest(questId: $questId, userId: $userId) {
+  mutation RemoveQuest($questId: ID!, $exppoints: Int, $userId: ID!) {
+  removeQuest(questId: $questId, exppoints: $exppoints, userId: $userId) {
+    expPoints
     activeQuests {
       _id
       title
@@ -83,38 +85,4 @@ export const REMOVE_QUEST = gql`
     }
   }
 }
-`;
-
-
-//Delete this later
-export const ADD_THOUGHT = gql`
-  mutation addThought($thoughtText: String!) {
-    addThought(thoughtText: $thoughtText) {
-      _id
-      thoughtText
-      thoughtAuthor
-      createdAt
-      comments {
-        _id
-        commentText
-      }
-    }
-  }
-`;
-
-//Delete this later
-export const ADD_COMMENT = gql`
-  mutation addComment($thoughtId: ID!, $commentText: String!) {
-    addComment(thoughtId: $thoughtId, commentText: $commentText) {
-      _id
-      thoughtText
-      thoughtAuthor
-      createdAt
-      comments {
-        _id
-        commentText
-        createdAt
-      }
-    }
-  }
 `;
