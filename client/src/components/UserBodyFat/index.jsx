@@ -6,7 +6,7 @@ const UserBodyFat = ({
     if (!user.bodyFatTrack[0]) {
       return <h3>No body fat records!</h3>;
     }
-  console.log(user.bodyFatTrack[0]);
+
     return (
       <div>
         {showTitle && <h3 id="userinfo-stats">{title}</h3>}

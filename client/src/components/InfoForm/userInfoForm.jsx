@@ -1,8 +1,11 @@
 import { useState } from 'react';
 import { UPDATE_USER } from '../../utils/mutations';
+import { QUERY_ME } from '../../utils/queries';
 import { useMutation } from '@apollo/client';
 
-const UserInfoForm = () => {
+const UserInfoForm = ({
+  user,
+}) => {
   const [mainGoal, setGoal] = useState('');
   const [height, setHeight] = useState('');
   const [weightTrack, setWeight] = useState('');
@@ -11,6 +14,8 @@ const UserInfoForm = () => {
 
   const [updateUser] = useMutation(UPDATE_USER);
 
+  console.log(user._id);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!mainGoal || !height || !weightTrack || !bodyFatTrack) {
@@ -18,15 +23,22 @@ const UserInfoForm = () => {
       return;
     }
 
+    const { data } = await removeQuest({  // Mutator function that removes a quest by id from a users activeQuest list
+      variables: { questId, userId },
+      refetchQueries:  [{ query: QUERY_ME }, 'me']}
+    );
+
     try {
       await updateUser({ 
         variables: { 
           mainGoal, 
           height: parseFloat(height), 
-          weightTrack: parseFloat(weightTrack), 
-          bodyFatTrack: parseFloat(bodyFatTrack) 
-        } 
-      });
+          weight: parseFloat(weightTrack), 
+          bodyfat: parseFloat(bodyFatTrack),
+          userId: user._id
+        },
+        refetchQueries:  [{ query: QUERY_ME }, 'me']} // Refetches the users info after submission
+      );
       // Clear the form fields after submission
       setGoal('');
       setHeight('');
@@ -45,10 +57,10 @@ const UserInfoForm = () => {
       <label>Goal:</label>
       <select id="goal" value={mainGoal} onChange={(e) => setGoal(e.target.value)} required>
         <option value="">Select your goal</option>
-        <option value="strength">Strength</option>
-        <option value="intellect">Intellect</option>
-        <option value="vitality">Vitality</option>
-        <option value="stamina">Stamina</option>
+        <option value="Strength">Strength</option>
+        <option value="Intellect">Intellect</option>
+        <option value="Vitality">Vitality</option>
+        <option value="Stamina">Stamina</option>
       </select>
       <br />
       <label>Height (in):</label>
@@ -79,7 +91,7 @@ const UserInfoForm = () => {
         required 
       />
       <br />
-      <button type="submit">Submit</button>
+      <button className='submit-button' type="submit">Submit</button>
     </form>
   );
 };

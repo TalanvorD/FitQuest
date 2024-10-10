@@ -1,5 +1,7 @@
 import { Navigate, useParams } from 'react-router-dom';
 import { useQuery, useMutation } from '@apollo/client';
+import React, { useRef, useEffect, useState } from "react";
+import { select, line, curveCardinal } from "d3";
 import "../assets/css/profile.css"
 import { QUERY_USER, QUERY_USERS, USERS_LEADERBOARD, QUERY_ME, QUERY_QUESTS } from '../utils/queries';
 import UserWeight from '../components/UserWeight';
@@ -8,6 +10,7 @@ import UserInfo from '../components/UserInfo';
 import UserQuests from '../components/UserQuests';
 import QuestList from '../components/QuestList';
 import Leaderboard from '../components/Leaderboard';
+import UserChart from '../components/UserChart';
 
 import Auth from '../utils/auth';
 import { REMOVE_QUEST } from '../utils/mutations';
@@ -20,30 +23,6 @@ const TestPage = () => {
   const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
     variables: { username: userParam },
   });
-
-  // const [removeQuest, { error }] = useMutation(REMOVE_QUEST); // Importing a mutator function to delete a book from the DB
-
-  // // Function that accepts the quest's mongo _id value as param and deletes the quest from the users activeQuest list
-  // const handleRemoveQuest = async (questId) => {
-  //   const token = Auth.loggedIn() ? Auth.getToken() : null;
-
-  //   if (!token) {
-  //     return false;
-  //   }
-
-  //   try {
-  //     const { data } = await removeQuest({ variables: { questId } }); // Mutator function that deletes a book by id from a users library
-
-  //     // upon success, remove book's id from localStorage
-  //     //removeBookId(bookId);
-
-  //     if (data) { console.log(`The quest has been removed.`); }
-
-  //     if (error) { console.log("An error has occured while removed this quest!", error); }
-  //   } catch (err) {
-  //     console.error(err);
-  //   }
-  // };
 
   const user = data?.me || data?.user || {};
   if (
@@ -151,7 +130,14 @@ const TestPage = () => {
             </div>
           </div>
         </div>
+        <div>
       </div>
+      <UserChart
+                user={user}
+                title={`Chart:`}
+                showTitle={true}
+              />
+        </div>
     </div>
   );
 };

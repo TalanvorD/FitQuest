@@ -30,7 +30,7 @@ const Signup = () => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log(formState);
+    // console.log(formState); // This exposes the users login to the console
 
     try {
       const { data } = await addUser({

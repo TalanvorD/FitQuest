@@ -1,9 +1,9 @@
 import { Navigate, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
-import "../assets/css/profile.css"
-// import ThoughtForm from '../components/ThoughtForm';
-// import ThoughtList from '../components/ThoughtList';
+import "../assets/css/profile.css"// import ThoughtList from '../components/ThoughtList';
 import XpBar from '../components/XpBar/xpBar';
+// import UserQuests from '../components/UserQuests';
+// import QuesList from '../components/QuestList'
 import { QUERY_USER, QUERY_ME } from '../utils/queries';
 import UserInfoForm from '../components/InfoForm/userInfoForm';
 
@@ -61,10 +61,15 @@ const Profile = () => {
             <div className='xp-section'>
               <XpBar xp={user.expPoints} level={user.level}></XpBar>
             </div>
+
             {/* current quest */}
             {/* a section to show trends in weight and maybe even activity */}
           </div>
-          <UserInfoForm user={user} title={`Title for this`} showTitle={true}></UserInfoForm>
+          <div className='general-form'>
+            <UserInfoForm user={user} title={`General Info Form`} showTitle={true}></UserInfoForm>
+          </div>
+              {/* <QuesList></QuesList>
+              <UserQuests></UserQuests> */}
 
           {/* <div className="col-12 col-md-10 mb-5">
             <ThoughtList
