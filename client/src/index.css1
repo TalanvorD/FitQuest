@@ -1710,7 +1710,7 @@ label form [type='radio'] {
 }
 
 #login-bg {
-  background-image: url('../public/login-bg.jpg');
+  background-image: url('/login-bg.jpg');
   background-size: cover; /* Adjust the size as needed */
   background-position: center; /* Center the image */
   width: 100%;
