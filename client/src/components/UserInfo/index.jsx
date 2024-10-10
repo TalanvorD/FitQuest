@@ -12,20 +12,22 @@ const UserInfo = ({
   let weightCheck = false;
   let bodyfatCheck = false;
   let userBmi = false;
-
-
+  
+  
   if (user.weightTrack[0] && user.bodyFatTrack[0]) {
     weightCheck = user.weightTrack.slice(-1)[0].recordedWeight;
     bodyfatCheck = user.bodyFatTrack.slice(-1)[0].recordedBodyFat;
     const bmiCalc = ((weightCheck * 703) / user.height) / user.height;
     userBmi = bmiCalc.toFixed();
-  };
+  }
+  
 
-    return (
-      <div id="userinfo-component-div">
+  
+  return (
+    <div id="userinfo-component-div">
         {showTitle && <h3 id="userinfo-stats">{title}</h3>}
         <ul id="userinfo-stats">
-          <li>Level: {user.level}</li>
+          <li>Level: {Math.floor(user.expPoints/100)}</li>
           <li>XP: {user.expPoints}</li>
           <li>Goal: {user.mainGoal}</li>
           <li>Strength: {user.strength}</li>

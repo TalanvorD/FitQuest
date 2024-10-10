@@ -6,6 +6,7 @@ import UserQuests from '../components/UserQuests';
 import { QUERY_USER, QUERY_ME } from '../utils/queries';
 import UserInfoForm from '../components/InfoForm/userInfoForm';
 import UserInfo from '../components/UserInfo';
+import Header from '../components/Header';
 
 import Auth from '../utils/auth';
 
@@ -42,6 +43,7 @@ const Profile = () => {
       <div className='center'>
         <div className="hero">
           {/* <img className="hero"/> */}
+          <Header></Header>
           <h2 className="center text-light p-3 mb-5" id="profile-welcome">
             Welcome
           </h2>

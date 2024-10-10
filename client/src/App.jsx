@@ -44,7 +44,6 @@ function App() {
     <ApolloProvider client={client}>
       <div id="main-bg" className="flex-column justify-flex-start min-100-vh">
         {/* The Header will not render if the current page is '/Login' */}
-        {currentPage !== '/login' && currentPage !== '/signup' && currentPage !== '/landingpage' && <Header />}
         <div className="container">
           {/* NEED TO MAKE A NEW LANDING PAGE TO SIGN IN IF USER ISN'T THERE */}
         {!isAuthenticated && currentPage !== '/login' && currentPage !== '/signup'  && <Navigate to="/landingpage" />}
