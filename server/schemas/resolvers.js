@@ -118,6 +118,17 @@ const resolvers = {
       );
       return updatedUser;
     },
+
+    removeQuestIncLevel: async (parent, { questId, expResult, userId }) => { // Removes a quest from the users activeQuests and awards exp
+      const updatedUser = await User.findByIdAndUpdate(
+        { _id: userId },
+        { expPoints: expResult,
+          $pull: { activeQuests: questId },
+          $inc: { level: 1 } },
+        { new: true }
+      );
+      return updatedUser;
+    },
   },
 };
 

@@ -27,7 +27,7 @@ const UserInfo = ({
     <div id="userinfo-component-div">
         {showTitle && <h3 id="userinfo-stats">{title}</h3>}
         <ul id="userinfo-stats">
-          <li>Level: {Math.floor(user.expPoints/100)}</li>
+          <li>Level: {user.level}</li>
           <li>XP: {user.expPoints}</li>
           <li>Goal: {user.mainGoal}</li>
           <li>Strength: {user.strength}</li>

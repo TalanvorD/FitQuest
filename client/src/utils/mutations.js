@@ -85,3 +85,20 @@ export const REMOVE_QUEST = gql`
   }
 }
 `;
+
+export const REMOVE_QUEST_LEVEL = gql`
+  mutation RemoveQuestIncLevel($questId: ID!, $expResult: Int, $userId: ID!) {
+  removeQuestIncLevel(questId: $questId, expResult: $expResult, userId: $userId) {
+    expPoints
+    level
+    activeQuests {
+      _id
+      title
+      description
+      statType
+      expValue
+      time
+    }
+  }
+}
+`;

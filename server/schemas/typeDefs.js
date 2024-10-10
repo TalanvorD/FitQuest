@@ -71,6 +71,7 @@ const typeDefs = `#graphql
     removeActivity(activityId: ID!): Activity
     saveQuest(questId: ID!, userId: ID!): User
     removeQuest(questId: ID!, exppoints: Int, userId: ID!): User
+    removeQuestIncLevel(questId: ID!, expResult: Int, userId: ID!): User
   }
 `;
 

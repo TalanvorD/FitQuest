@@ -1,7 +1,7 @@
 // import React, { useState, useEffect } from 'react';
 import './xpBar.css'; // Import the CSS file
 
-const XpBar = ({xp}) => {
+const XpBar = ({xp, level}) => {
 //   const [totalXP, setTotalXP] = useState(0);
 //   const [currentLevel, setCurrentLevel] = useState(1);
 
@@ -43,7 +43,7 @@ const XpBar = ({xp}) => {
 //   }
   const percentage = xp % 100; 
   const levelCalc = xp/100;
-  const totalLvl = Math.floor(levelCalc);
+  const totalLvl = level; //Math.floor(levelCalc);
 
 // document.documentElement.style.setProperty('--xp-percentage', `'${percentage}'`)
   return (

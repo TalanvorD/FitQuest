@@ -86,6 +86,7 @@ const Home = () => {
                 quests={user.activeQuests}
                 title={`${user.username}'s quests:`}
                 userId={user._id}
+                userXp={user.expPoints}
                 showTitle={true}
                 showUsername={true}
               />
