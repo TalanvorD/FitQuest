@@ -106,3 +106,20 @@ li {
   z-index: 5;
 }
 
+#form-container {
+  display: flex;
+  position: relative;
+  top: 0px;
+  align-items: center;
+  height: 500px;
+  justify-content: center;
+  padding: 80px 0;
+  background: linear-gradient(rgb(54, 54, 75), rgb(23, 23, 32) 1%, rgb(12, 12, 17));
+  border-bottom: 10px groove rgb(54, 54, 75);
+}
+
+#profile-active-quest-div {
+  height: auto;
+  background: linear-gradient(rgb(141, 52, 52),rgb(112, 40, 40), rgb(88, 31, 31));
+  box-shadow: inset 0px 0px 30px 5px rgb(158, 11, 11);
+}

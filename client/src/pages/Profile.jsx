@@ -71,12 +71,14 @@ const Profile = () => {
         </div>         
 
         <div id="bottom-border"></div>
-      </div>        
-      <div className='general-form'>
-            <UserInfoForm user={user} title={`General Info Form`} showTitle={true}></UserInfoForm>
+      </div>  
+      <div id="form-container">      
+        <div className='general-form'>
+              <UserInfoForm user={user} title={`General Info Form`} showTitle={true}></UserInfoForm>
+        </div>
       </div>
         
-      <div>
+      <div id="profile-active-quest-div">
         <UserQuests
             quests={user.activeQuests}
             title={`${user.username}'s quests:`}
