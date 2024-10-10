@@ -1,5 +1,5 @@
 .hero {
-  background-image: url('/Users/ryanshaffer/bootcamp/FitQuest/client/src/assets/greathall.jpg');
+  background-image: url('../greathall.jpg');
   background-size: cover;
   height: 850px;
   width: 1080px;
