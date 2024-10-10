@@ -25,12 +25,11 @@ export const ADD_USER = gql`
 `;
 
 export const UPDATE_USER = gql`
-mutation UpdateUser($userId: ID!, $mainGoal: String, $height: Int, $weight: Int, $bodyfat: Int, $exppoints: Int) {
-  updateUser(userId: $userId, mainGoal: $mainGoal, height: $height, weight: $weight, bodyfat: $bodyfat, exppoints: $exppoints) {
+mutation UpdateUser($userId: ID!, $mainGoal: String, $height: Int, $weight: Int, $bodyfat: Int) {
+  updateUser(userId: $userId, mainGoal: $mainGoal, height: $height, weight: $weight, bodyfat: $bodyfat) {
     username
     mainGoal
     height
-    expPoints
     weightTrack {
       recordedWeight
       recordedAt

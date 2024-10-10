@@ -34,7 +34,6 @@ const UserInfo = ({
           {weightCheck ? <li>Current Weight: {user.weightTrack.slice(-1)[0].recordedWeight}  lbs</li> : <li>No current record for weight</li>}
           {bodyfatCheck ? <li>Current Body Fat: {user.bodyFatTrack.slice(-1)[0].recordedBodyFat}%</li> : <li>No current record for body fat</li>}
           {userBmi ? <li>Your BMI: {userBmi}</li> : <li>No record for BMI</li>}
-          {/* <li>Your BMI: {userBmi}</li> */}
         </ul>
       </div>
     );
