@@ -31,7 +31,7 @@ const Login = (props) => {
   // submit form
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log(formState);
+    // console.log(formState); // This exposes the users login to the console
     try {
       const { data } = await login({
         variables: { ...formState },
