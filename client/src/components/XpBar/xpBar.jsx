@@ -1,7 +1,7 @@
 // import React, { useState, useEffect } from 'react';
 import './xpBar.css'; // Import the CSS file
 
-const XpBar = ({xp, level}) => {
+const XpBar = ({xp}) => {
 //   const [totalXP, setTotalXP] = useState(0);
 //   const [currentLevel, setCurrentLevel] = useState(1);
 
