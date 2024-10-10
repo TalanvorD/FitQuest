@@ -2,15 +2,22 @@ import { useState } from 'react';
 import { UPDATE_USER } from '../../utils/mutations';
 import { QUERY_ME } from '../../utils/queries';
 import { useMutation } from '@apollo/client';
+import { useNavigate } from 'react-router-dom';
+import '../../index.css';
 
-const UserInfoForm = ({
-  user,
-}) => {
+
+const UserInfoForm = ({ user }) => {
   const [mainGoal, setGoal] = useState('');
   const [height, setHeight] = useState('');
   const [weightTrack, setWeight] = useState('');
   const [bodyFatTrack, setBodyFat] = useState('');
   const [error, setError] = useState('');
+
+  const navigate = useNavigate();
+
+  const goToMain = () => {
+    navigate('/');
+  };
 
   const [updateUser] = useMutation(UPDATE_USER);
 
@@ -20,11 +27,6 @@ const UserInfoForm = ({
       setError("All fields are required.");
       return;
     }
-
-    // const { data } = await removeQuest({  // Mutator function that removes a quest by id from a users activeQuest list
-    //   variables: { questId, userId },
-    //   refetchQueries:  [{ query: QUERY_ME }, 'me']}
-    // );
 
     try {
       await updateUser({ 
@@ -37,12 +39,15 @@ const UserInfoForm = ({
         },
         refetchQueries:  [{ query: QUERY_ME }, 'me']} // Refetches the users info after submission
       );
+
       // Clear the form fields after submission
       setGoal('');
       setHeight('');
       setWeight('');
       setBodyFat('');
       setError(''); // Clear error on successful submission
+
+      goToMain(); // Navigate to main after successful submission
     } catch (error) {
       console.error("Error submitting the form:", error);
       setError("Failed to update user info. Please try again.");
@@ -50,7 +55,7 @@ const UserInfoForm = ({
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} id="form-box">
       {error && <p style={{ color: 'red' }}>{error}</p>}
       <label>Goal:</label>
       <select id="goal" value={mainGoal} onChange={(e) => setGoal(e.target.value)} required>
@@ -89,7 +94,7 @@ const UserInfoForm = ({
         required 
       />
       <br />
-      <button className='submit-button' type="submit">Submit</button>
+      <button className='submit-button' type="submit" id="form-submit-button">Submit</button>
     </form>
   );
 };

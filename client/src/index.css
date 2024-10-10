@@ -668,8 +668,6 @@ a {
     align-items: center;
     justify-content: center;
     height: 100vh; 
-    margin: 0;
-    padding: 0;
     position: relative; 
 }
 
@@ -681,6 +679,58 @@ a {
     height: 100%; 
     object-fit: cover; 
     z-index: -1;
+}
+
+.general-form {
+  position: relative;
+  border-radius: 50px;
+  width: 500px;
+  height: 500px;
+  border: 5px double brown;
+  background: linear-gradient(rgba(175, 28, 163, 0.349) ,rgba(143, 22, 133, 0.842) 40%, rgb(105, 15, 98));
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+  margin: 5px 0px;
+}
+
+
+#form-box {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-align: center;
+    width: 100%;
+}
+
+#form-box label {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#form-box input, #form-box select {
+    width: 70%;
+    height: 30px;
+    font-size: 15px;
+}
+
+#form-submit-button {
+    padding: 10px 90px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    background-color: white;
+    transition: background-color 0.7s,
+    color 0.7s,
+    box-shadow 0.7s;
+}
+
+#form-submit-button:hover {
+    background-color: gold;
+    color: white;
+    box-shadow: 0px 0px 5px 5px white;
 }
 
 #landing-content {
@@ -776,5 +826,3 @@ a {
 .footer h2:hover {
     transform: scale(1.2);
 }
-
-/* profile page */

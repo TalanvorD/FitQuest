@@ -76,9 +76,9 @@ const Profile = () => {
             {/* current quest */}
             {/* a section to show trends in weight and maybe even activity */}
           </div>
-          <div className='general-form'>
+          {/* <div className='general-form'>
             <UserInfoForm user={user} title={`General Info Form`} showTitle={true}></UserInfoForm>
-          </div>
+          </div> */}
               {/* <QuesList></QuesList>
               <UserQuests></UserQuests> */}
 
