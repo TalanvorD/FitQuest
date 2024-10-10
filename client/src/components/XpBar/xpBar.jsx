@@ -47,12 +47,14 @@ const XpBar = ({xp}) => {
 
 // document.documentElement.style.setProperty('--xp-percentage', `'${percentage}'`)
   return (
-      <div>
+      <div id="full-xp">
           <div className="xp-bar">
               <div className="xp-fill" style={{ width: `${percentage}%`, '--xp-percentage': `'${percentage}'` }}></div>
           </div>
-          <p>Level: {totalLvl}</p>
-          <p>Total Experience: {xp}</p>
+          <div id="xp-content">
+            <p>Level: {totalLvl}</p>
+            <p>Total Experience: {xp}</p>
+          </div>
       </div>
   );
 };
