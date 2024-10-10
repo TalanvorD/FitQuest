@@ -36,9 +36,9 @@ const Header = () => {
               <Link className="btn btn-lg btn-info m-2 header-links" to="/me" id="profile-link-header">
                 <p>Your Profile</p>
               </Link>
-              <button className="btn btn-lg btn-light m-2 header-links-button" onClick={goToTest}>
+              {/* <button className="btn btn-lg btn-light m-2 header-links-button" onClick={goToTest}>
                 Test Page
-              </button>
+              </button> */}
               <button className="btn btn-lg btn-light m-2 header-links-button" onClick={goToLogin}>
                 Logout
               </button>

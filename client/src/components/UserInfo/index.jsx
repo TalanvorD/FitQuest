@@ -1,3 +1,5 @@
+import '../../assets/css/profile.css'
+
 const UserInfo = ({
   user,
   title,
@@ -20,7 +22,7 @@ const UserInfo = ({
   };
 
     return (
-      <div>
+      <div id="userinfo-component-div">
         {showTitle && <h3 id="userinfo-stats">{title}</h3>}
         <ul id="userinfo-stats">
           <li>Level: {user.level}</li>

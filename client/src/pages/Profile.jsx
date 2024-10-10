@@ -40,12 +40,15 @@ const Profile = () => {
   }
   
   return (
-    <div>
+    <div id="main-profile">
       <div className='center'>
         <div className="hero">
           {/* <img className="hero"/> */}
-          <h2 className="center text-light p-3 mb-5">
-            Welcome {user.username}
+          <h2 className="center text-light p-3 mb-5" id="profile-welcome">
+            Welcome
+          </h2>
+          <h2 className="center text-light p-3 mb-5" id="profile-name">
+            {user.username}
           </h2>
           <div className='grid'>
             <div className='profile-section'>
@@ -96,6 +99,7 @@ const Profile = () => {
             </div>
           )} */}
         </div>
+        <div id="bottom-border"></div>
       </div>
     </div>
   );
