@@ -71,7 +71,7 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <img id="main-bg-img" src="../public/homepage-bg-2.webp" alt="Background" />
+      <img id="main-bg-img" src="/homepage-bg-2.webp" alt="Background" />
       <div id="main-img-border">
         <div id="active-quest-box" className="main-box-containers">
           <h2 id="active-quest-title" className="box-title">Active Quests</h2>
