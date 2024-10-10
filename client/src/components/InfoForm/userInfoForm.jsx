@@ -14,8 +14,6 @@ const UserInfoForm = ({
 
   const [updateUser] = useMutation(UPDATE_USER);
 
-  console.log(user._id);
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!mainGoal || !height || !weightTrack || !bodyFatTrack) {
@@ -23,10 +21,10 @@ const UserInfoForm = ({
       return;
     }
 
-    const { data } = await removeQuest({  // Mutator function that removes a quest by id from a users activeQuest list
-      variables: { questId, userId },
-      refetchQueries:  [{ query: QUERY_ME }, 'me']}
-    );
+    // const { data } = await removeQuest({  // Mutator function that removes a quest by id from a users activeQuest list
+    //   variables: { questId, userId },
+    //   refetchQueries:  [{ query: QUERY_ME }, 'me']}
+    // );
 
     try {
       await updateUser({ 
@@ -76,7 +74,7 @@ const UserInfoForm = ({
       <input 
         id="weight"
         type="number" 
-        value={weightTrack} 
+        value={weightTrack}
         onChange={(e) => setWeight(e.target.value)} 
         required 
       />

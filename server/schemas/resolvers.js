@@ -54,13 +54,12 @@ const resolvers = {
       return { token, user };
     },
 
-    updateUser: async (parent, { mainGoal, height, weight, bodyfat, userId, exppoints }) => {
+    updateUser: async (parent, { mainGoal, height, weight, bodyfat, userId }) => {
       return User.findByIdAndUpdate(
         { _id: userId },
-        { mainGoal: mainGoal, height: height,
-          $push: { weightTrack: { recordedWeight: weight } },
-          $push: { bodyFatTrack: { recordedBodyFat: bodyfat } },
-          $inc: { expPoints: exppoints }
+        { mainGoal: mainGoal,
+          height: height,
+          $push: { weightTrack: { recordedWeight: weight }, bodyFatTrack: { recordedBodyFat: bodyfat } },
         },
         { new: true }
       );

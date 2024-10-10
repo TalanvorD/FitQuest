@@ -6,6 +6,7 @@ import XpBar from '../components/XpBar/xpBar';
 // import QuesList from '../components/QuestList'
 import { QUERY_USER, QUERY_ME } from '../utils/queries';
 import UserInfoForm from '../components/InfoForm/userInfoForm';
+import UserInfo from '../components/UserInfo';
 
 import Auth from '../utils/auth';
 
@@ -48,13 +49,20 @@ const Profile = () => {
           </h2>
           <div className='grid'>
             <div className='profile-section'>
-              <h3>{user.username}</h3>
+              {/* <h3>{user.username}</h3>
               <ul>
               <li className="stat-text vit-text">Vitality: {user.vitality}</li>
               <li className="stat-text str-text">Strength: {user.strength}</li>
               <li className="stat-text stam-text">Stamina: {user.stamina}</li>
               <li className="stat-text int-text">Intellect: {user.intellect}</li>
-              </ul>
+              </ul> */}
+                            {/* {user.username} stats: */}
+              <UserInfo
+                user={user}
+                title={`${user.username}'s stats:`}
+                showTitle={true}
+                showUsername={true}
+              />
               {/* user character image */}
               {/* user stats (weight height goal) */}
             </div>

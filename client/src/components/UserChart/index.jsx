@@ -1,28 +1,48 @@
 import React, { useRef, useEffect, useState } from "react";
 import './index.css';
-import { select, line, curveCardinal } from "d3";
+import { select, line, curveCardinal, axisBottom, axisRight, scaleLinear, max, min } from "d3";
 
 const UserChart = ({
     user,
 }) => {
-    const userWeightValues = user.weightTrack.map;
-    console.log(user.weightTrack);
-    console.log(userWeightValues);
-    const [data, setData] = useState([25,30,45,60,20,65,75]);
+    const [data, setData] = useState([user.weightTrack]);
     const svgRef = useRef();
     useEffect(() => {
         const svg = select(svgRef.current);
 
+        const xScale = scaleLinear()
+            .domain(data.map( (d) => d.recordedAt ))
+            .range([0, 300]);
+
+        const yScale = scaleLinear()
+            .domain(data.map( (d) => d.recordedWeight))
+            .range([150, 0]);
+
+        const xAxis = axisBottom(xScale)
+            .ticks(data.length)
+            .tickFormat(index => index + 1);
+        svg
+            .select(".x-axis")
+            .style("transform", "translateY(150px)")
+            .call(xAxis);
+
+        const yAxis = axisRight(yScale);
+        svg
+            .select(".y-axis")
+            .style("transform", "translateX(300px)")
+            .call(yAxis);
+
         const myLine = line()
-            .x((value, index) => index * 50)
-            .y(value => 150 - value)
+            .x((data) => xScale(data.recordedAt))
+            .y((data)=>yScale(data.recordedWeight))
             .curve(curveCardinal);
 
         svg
             .selectAll("path")
-            .data([data])
+            .data(data)
             .join("path")
-            .attr("d", value => myLine(value))
+            .attr("class", "line")
+            .attr("d", myLine)
             .attr("fill", "none")
             .attr("stroke", "red");
     }, [data]);
