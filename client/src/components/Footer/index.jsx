@@ -4,28 +4,16 @@ const Footer = () => {
   const location = useLocation();
   const navigate = useNavigate();
   return (
-    <footer className="w-100 mt-auto bg-secondary p-4">
+    <footer className="w-100 mt-auto bg-secondary p-4 footer">
       <div className="container text-center mb-5">
-        {location.pathname !== '/' && (
-          <button
-            className="btn btn-dark mb-3"
-            onClick={() => navigate(-1)}
-          >
-            &larr; Go Back
-          </button>
-        )}
         <h4>
-          Made with{' '}
-          <span
-            className="emoji"
-            role="img"
-            aria-label="heart"
-            aria-hidden="false"
-          >
-            ❤️
-          </span>{' '}
-          by the Tech Thoughts team.
+          Created By
         </h4>
+      </div>
+      <div id="creator-links">
+        <a target="_blank" href="https://github.com/TalanvorD"><h2>TalanvorD</h2></a>
+        <a target="_blank" href="https://github.com/shyanrafer"><h2>shyanrafer</h2></a>
+        <a target="_blank" href="https://github.com/WillZovo94"><h2>WillZovo94</h2></a>
       </div>
     </footer>
   );
