@@ -9,6 +9,7 @@ import Auth from '../utils/auth';
 import Leaderboard from '../components/Leaderboard';
 import QuestList from '../components/QuestList';
 import UserQuests from '../components/UserQuests';
+import Header from '../components/Header';
 
 
 const Home = () => {
@@ -54,6 +55,7 @@ const Home = () => {
   return (
     <main id="main">
       <div id="main-content">
+          <Header></Header>
         <div id="main-content-1">
           <div id="character">
             <h2 className="card-title">{user.username}</h2>
