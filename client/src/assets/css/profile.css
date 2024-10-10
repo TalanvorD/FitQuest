@@ -3,10 +3,10 @@ header {
   z-index: 2;
 }
 
-#main-profile {
+/* #main-profile {
   position: relative;
   height: auto;
-}
+} */
 
 .hero {
   position: relative;
@@ -16,7 +16,6 @@ header {
   background-image: url('../greathall.jpg');
   background-size: cover;
   height: 120vh;
-  top: -50px;
   width: 100%;
   background-position: center;
 }
@@ -25,6 +24,7 @@ header {
   position: relative;
   display: flex;
   justify-content: center;
+  flex-direction: column;
 }
 
 

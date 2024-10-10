@@ -2,8 +2,7 @@ import { Navigate, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import "../assets/css/profile.css"// import ThoughtList from '../components/ThoughtList';
 import XpBar from '../components/XpBar/xpBar';
-// import UserQuests from '../components/UserQuests';
-// import QuesList from '../components/QuestList'
+import UserQuests from '../components/UserQuests';
 import { QUERY_USER, QUERY_ME } from '../utils/queries';
 import UserInfoForm from '../components/InfoForm/userInfoForm';
 import UserInfo from '../components/UserInfo';
@@ -20,7 +19,6 @@ const Profile = () => {
   const user = data?.me || data?.user || {};
   if (
     Auth.loggedIn() && 
-    /* Run the getProfile() method to get access to the unencrypted token value in order to retrieve the user's username, and compare it to the userParam variable */
     Auth.getProfile().authenticatedPerson.username === userParam
   ) {
     return <Navigate to="/me" />;
@@ -52,14 +50,6 @@ const Profile = () => {
           </h2>
           <div className='grid'>
             <div className='profile-section'>
-              {/* <h3>{user.username}</h3>
-              <ul>
-              <li className="stat-text vit-text">Vitality: {user.vitality}</li>
-              <li className="stat-text str-text">Strength: {user.strength}</li>
-              <li className="stat-text stam-text">Stamina: {user.stamina}</li>
-              <li className="stat-text int-text">Intellect: {user.intellect}</li>
-              </ul> */}
-                            {/* {user.username} stats: */}
               <UserInfo
                 user={user}
                 title={`${user.username}'s stats:`}
@@ -67,7 +57,6 @@ const Profile = () => {
                 showUsername={true}
               />
               {/* user character image */}
-              {/* user stats (weight height goal) */}
             </div>
             <div className='xp-section'>
               <XpBar xp={user.expPoints} level={user.level}></XpBar>
@@ -76,30 +65,23 @@ const Profile = () => {
             {/* current quest */}
             {/* a section to show trends in weight and maybe even activity */}
           </div>
-          <div className='general-form'>
-            <UserInfoForm user={user} title={`General Info Form`} showTitle={true}></UserInfoForm>
-          </div>
-              {/* <QuesList></QuesList>
-              <UserQuests></UserQuests> */}
 
-          {/* <div className="col-12 col-md-10 mb-5">
-            <ThoughtList
-              thoughts={user.thoughts}
-              title={`${user.username}'s thoughts...`}
-              showTitle={false}
-              showUsername={false}
-            />
-          </div>
-          {!userParam && (
-            <div
-              className="col-12 col-md-10 mb-3 p-3"
-              style={{ border: '1px dotted #1a1a1a' }}
-            >
-              <ThoughtForm />
-            </div>
-          )} */}
-        </div>
+        </div>         
+
         <div id="bottom-border"></div>
+      </div>        
+      <div className='general-form'>
+            <UserInfoForm user={user} title={`General Info Form`} showTitle={true}></UserInfoForm>
+      </div>
+        
+      <div>
+        <UserQuests
+            quests={user.activeQuests}
+            title={`${user.username}'s quests:`}
+            userId={user._id}
+            showTitle={true}
+            showUsername={true}>
+          </UserQuests>
       </div>
     </div>
   );

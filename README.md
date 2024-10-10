@@ -28,7 +28,8 @@ Fork, make edits, submit for review.
 ## Questions
 Github usernames:  <br/>
 Github profile links:  <br/>
-Repo link: https://github.com/TalanvorD/FitQuest
+Repo link: https://github.com/TalanvorD/FitQuest <br/>
+Deployed link: https://fitquest-z9km.onrender.com/
 
 ## Contact
 Best mode of contact:  <br/>
