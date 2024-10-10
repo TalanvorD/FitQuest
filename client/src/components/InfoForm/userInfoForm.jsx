@@ -91,7 +91,7 @@ const UserInfoForm = ({
         required 
       />
       <br />
-      <button type="submit">Submit</button>
+      <button className='submit-button' type="submit">Submit</button>
     </form>
   );
 };
