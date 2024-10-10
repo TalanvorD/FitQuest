@@ -1,47 +1,108 @@
+header {
+  position: relative;
+  z-index: 2;
+}
+
+#main-profile {
+  position: relative;
+  height: auto;
+}
+
 .hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background-image: url('../greathall.jpg');
   background-size: cover;
-  height: 850px;
-  width: 1080px;
+  height: 120vh;
+  top: -50px;
+  width: 100%;
   background-position: center;
 }
 
 .center {
+  position: relative;
   display: flex;
   justify-content: center;
 }
 
+
+#userinfo-component-div {
+  display: flex;
+  position: relative;
+  flex-direction: column
+}
+
 .grid {
   display: flex;
+  position: relative;
+  top: 150px;
+  width: 90%;
 }
 
 .xp-section {
-  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
   padding: 5px;
+  background-color: rgba(165, 42, 42, 0.562);
   margin-left: 2.5px;
   color: white;
   border: 5px double brown;
+  transition: background-color 0.7s;
 }
 
 .profile-section {
-  width: 50%;
+  position: relative;
+  background-color: rgba(165, 42, 42, 0.562);
+  width: 100%;
   color: white;
   padding: 5px;
   margin-right: 2.5px;
   border: 5px double brown;
+  transition: background-color 0.7s;
+}
 
+.profile-section:hover, .xp-section:hover {
+  background-color: rgba(131, 32, 32, 0.904);
+}
+
+#userinfo-stats {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
+  font-size: 22px;
+ color: white;
+}
+
+.user-info {
+  color: white;
 }
 
 li {
   list-style-type: circle;
 }
 
-.general-form {
-  border: 5px double brown;
-  display: flex;
-  justify-content: center;
-  padding: 5px;
-  margin: 5px 0px;
+#profile-welcome {
+  padding: 0;
+  margin: 0;
+  position: relative;
+  color: gold;
+  top: 120px;
+  font-size: 25px;
 }
 
+#profile-name {
+  color: gold;
+  top: 120px;
+  font-size: 30px;
+}
+
+#footer {
+  position: relative;
+  z-index: 5;
+}
 
