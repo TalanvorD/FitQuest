@@ -42,13 +42,16 @@ const XpBar = ({xp, level}) => {
 //     user.level
 //   }
   const percentage = xp % 100; 
+  const levelCalc = xp/100;
+  const totalLvl = Math.floor(levelCalc);
+
 // document.documentElement.style.setProperty('--xp-percentage', `'${percentage}'`)
   return (
       <div>
           <div className="xp-bar">
               <div className="xp-fill" style={{ width: `${percentage}%`, '--xp-percentage': `'${percentage}'` }}></div>
           </div>
-          <p>Level: {level}</p>
+          <p>Level: {totalLvl}</p>
           <p>Total Experience: {xp}</p>
       </div>
   );
