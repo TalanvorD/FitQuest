@@ -54,14 +54,14 @@ const resolvers = {
       return { token, user };
     },
 
-    updateUser: async (parent, { mainGoal, height, weight, bodyfat, userId }) => {
+    updateUser: async (parent, { mainGoal, height, weight, bodyfat, userId, exppoints }) => {
       return User.findByIdAndUpdate(
         { _id: userId },
         { mainGoal: mainGoal, height: height,
           $push: { weightTrack: { recordedWeight: weight } },
-          $push: { bodyFatTrack: { recordedBodyFat: bodyfat } } },
-        // { $addToSet: { weightTrack: weight } },
-        // { $addToSet: { bodyFatTrack: bodyfat } },
+          $push: { bodyFatTrack: { recordedBodyFat: bodyfat } },
+          $inc: { expPoints: exppoints }
+        },
         { new: true }
       );
     },
@@ -101,7 +101,7 @@ const resolvers = {
       throw AuthenticationError;
     },
 
-    saveQuest: async (parent, { questId, userId }) => { // Saves a book to the DB
+    saveQuest: async (parent, { questId, userId }) => { // Saves a quest to the users activeQuests
       const updatedUser = await User.findByIdAndUpdate(
         { _id: userId },
         { $addToSet: { activeQuests: questId } },
@@ -110,10 +110,11 @@ const resolvers = {
       return updatedUser;
     },
 
-    removeQuest: async (parent, { questId, userId }) => { // Removes a book from the DB
+    removeQuest: async (parent, { questId, exppoints, userId }) => { // Removes a quest from the users activeQuests and awards exp
       const updatedUser = await User.findByIdAndUpdate(
         { _id: userId },
-        { $pull: { activeQuests: questId } },
+        { $pull: { activeQuests: questId },
+          $inc: { expPoints: exppoints } },
         { new: true }
       );
       return updatedUser;

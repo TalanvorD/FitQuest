@@ -1,5 +1,5 @@
 import { useQuery, useMutation } from '@apollo/client';
-import { REMOVE_QUEST } from '../../utils/mutations';
+import { REMOVE_QUEST, UPDATE_USER } from '../../utils/mutations';
 import { QUERY_ME } from '../../utils/queries';
 // import Auth from '../../utils/auth';
 import '../../index.css';
@@ -7,6 +7,7 @@ import '../../index.css';
 const UserQuests = ({
     quests,
     userId,
+    user,
     title,
     showTitle = true,
 }) => {
@@ -22,15 +23,15 @@ const UserQuests = ({
   //   }
 
     // Function that accepts the quest's mongo _id value as param and deletes the quest from the users activeQuest list
-    const handleRemoveQuest = async (questId, userId) => {
+    const handleRemoveQuest = async (questId, exppoints, userId) => {
       try {
         const { data } = await removeQuest({  // Mutator function that removes a quest by id from a users activeQuest list
-            variables: { questId, userId },
+            variables: { questId, exppoints, userId },
             refetchQueries:  [{ query: QUERY_ME }, 'me']}
           );
         if (data) { console.log(`The quest has been removed.`); }
   
-        if (error) { console.log("An error has occured while removed this quest!", error); }
+        if (error) { console.log("An error has occured while removing this quest!", error); }
       } catch (err) {
         console.error(err);
       }
@@ -50,7 +51,7 @@ const UserQuests = ({
                             <li>Time: {activeQuests.time}</li>
                         </ul>
                         <div id="claim-button">
-                        <button onClick={() => handleRemoveQuest(activeQuests._id, userId)}>Finish this quest!</button>
+                        <button onClick={() => handleRemoveQuest(activeQuests._id, activeQuests.expValue, userId)}>Finish this quest!</button>
                         </div>
                     </div>
                 </div>

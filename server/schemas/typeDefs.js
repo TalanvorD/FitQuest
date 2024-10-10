@@ -64,13 +64,13 @@ const typeDefs = `#graphql
 
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
-    updateUser(userId: ID!, mainGoal: String, height: Int, weight: Int, bodyfat: Int): User
+    updateUser(userId: ID!, mainGoal: String, height: Int, weight: Int, bodyfat: Int, exppoints: Int): User
     removeUser(userId: ID!): Auth
     login(email: String!, password: String!): Auth
     addActivity(name: String!, calorieBurn: Int, statType: String): Activity
     removeActivity(activityId: ID!): Activity
     saveQuest(questId: ID!, userId: ID!): User
-    removeQuest(questId: ID!, userId: ID!): User
+    removeQuest(questId: ID!, exppoints: Int, userId: ID!): User
   }
 `;
 
