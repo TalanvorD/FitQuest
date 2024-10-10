@@ -11,6 +11,7 @@ import UserQuests from '../components/UserQuests';
 import QuestList from '../components/QuestList';
 import Leaderboard from '../components/Leaderboard';
 import UserChart from '../components/UserChart';
+import UserImage from '../components/UserImage';
 
 import Auth from '../utils/auth';
 import { REMOVE_QUEST } from '../utils/mutations';

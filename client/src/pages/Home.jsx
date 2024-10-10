@@ -5,11 +5,13 @@ import XpBar from '../components/XpBar/xpBar';
 import { QUERY_USER, QUERY_ME, USERS_LEADERBOARD, QUERY_QUESTS } from '../utils/queries';
 import Auth from '../utils/auth';
 
-// For leaderboard, questlist, activequests
+// For leaderboard, questlist, activequests, users image
 import Leaderboard from '../components/Leaderboard';
 import QuestList from '../components/QuestList';
 import UserQuests from '../components/UserQuests';
 import Header from '../components/Header';
+import UserImage from '../components/UserImage';
+
 
 
 const Home = () => {
@@ -59,6 +61,9 @@ const Home = () => {
         <div id="main-content-1">
           <div id="character">
             <h2 className="card-title">{user.username}</h2>
+            <UserImage
+                userGoal={user.mainGoal}
+              />
           </div>
           <div id="character-statbox">
             <div>
