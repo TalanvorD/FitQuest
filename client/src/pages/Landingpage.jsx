@@ -6,7 +6,7 @@ const LandingPage = () => {
 
 return (
     <main id="landing-main">   
-      <img id="landing-page-bg" src="../public/homepage-bg-2.webp"></img>
+      <img id="landing-page-bg" src="/homepage-bg-2.webp"></img>
       <div id="landing-content">
         <h2>Welcome Traveler to <span id="fitquest-span">FitQuest!</span></h2>
         <p>In a world where every day presents a choice between the mundane and the extraordinary, you stand at the crossroads of opportunity. 
