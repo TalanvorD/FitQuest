@@ -6,7 +6,7 @@ const FormPage = () => {
 
 return (
     <main id="landing-main">   
-      <img id="landing-page-bg" src="../public/homepage-bg-2.webp"></img>
+      <img id="landing-page-bg" src="/homepage-bg-2.webp"></img>
     </main>
   );
 }
