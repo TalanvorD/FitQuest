@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { UPDATE_USER } from '../../utils/mutations';
 import { QUERY_ME } from '../../utils/queries';
 import { useMutation } from '@apollo/client';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import '../../index.css';
 
 
@@ -14,10 +14,7 @@ const UserInfoForm = ({ user }) => {
   const [error, setError] = useState('');
 
   const navigate = useNavigate();
-
-  const goToMain = () => {
-    navigate('/');
-  };
+  const location = useLocation();
 
   const [updateUser] = useMutation(UPDATE_USER);
 
@@ -47,7 +44,12 @@ const UserInfoForm = ({ user }) => {
       setBodyFat('');
       setError(''); // Clear error on successful submission
 
-      goToMain(); // Navigate to main after successful submission
+      if (location.pathname === '/formpage') {
+        navigate('/'); // Redirect to homepage
+      } else if (location.pathname === '/me') {
+        navigate('/me'); // Stay on the me page or navigate to a different page if needed
+      }
+      
     } catch (error) {
       console.error("Error submitting the form:", error);
       setError("Failed to update user info. Please try again.");
