@@ -35,6 +35,9 @@ Fork, make edits, submit for review.
 ## Questions
 Repo link: https://github.com/TalanvorD/FitQuest <br/>
 Deployed link: https://fitquest-z9km.onrender.com/
+<br/><br/>
+TECH USED: <br/>
+HTML, CSS, React.js, JavaScript, Git, Render, GraphQL, canvas, MongoDB, mongoose, bcrypt, express, jwt, vite
 
 ## Contact
 Best mode of contact: Ping on Github <br/>
